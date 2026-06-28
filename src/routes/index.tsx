@@ -40,6 +40,14 @@ const imgs = {
   tropez:   U + '1557804497-4b671f27e3a0'   + Q(700),
   plage:    U + '1507525428034-b723cf961d3e' + Q(700),
   provence: U + '1523531294919-4bcd7c65d049' + Q(700),
+  grimaud: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grimaud-village-06.jpg?width=900',
+  portGrimaud: 'https://commons.wikimedia.org/wiki/Special:FilePath/La%20cit%C3%A9%20lacustre%20de%20Port%20Grimaud%2C%20vue%20du%20ciel.jpg?width=900',
+  gassin: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rue%20de%20gassin.jpg?width=900',
+  sainteMaxime: 'https://commons.wikimedia.org/wiki/Special:FilePath/Digue%20et%20plage%20de%20Sainte-Maxime.jpg?width=900',
+  saintTropez: 'https://commons.wikimedia.org/wiki/Special:FilePath/Saint-Tropez%20-%20Port%20de%20plaisance%2001.jpg?width=900',
+  ramatuelle: 'https://commons.wikimedia.org/wiki/Special:FilePath/83350%20Ramatuelle%2C%20France%20-%20panoramio.jpg?width=900',
+  croixValmer: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20Gigaro%20Beach%20in%20La%20Croix-Valmer%2C%20France%20%2852723801211%29.jpg?width=900',
+  rayol: 'https://commons.wikimedia.org/wiki/Special:FilePath/Domaine%20du%20Rayol%202.JPG?width=900',
 }
 
 // ── Hooks ────────────────────────────────────────────────────────────────────
@@ -715,12 +723,70 @@ function ArtDeVivreSection() {
 
 function ExploreSection() {
   const destinations = [
-    { name: 'Grimaud', desc: 'Village médiéval & marchés provençaux', img: imgs.provence, dist: '5 min' },
-    { name: 'Port-Grimaud', desc: 'La Venise provençale', img: imgs.plage, dist: '10 min' },
-    { name: 'Saint-Tropez', desc: 'Glamour, plages & place des Lices', img: imgs.tropez, dist: '15 min' },
-    { name: 'Ramatuelle', desc: 'Vignobles & panoramas sur le golfe', img: imgs.provence, dist: '20 min' },
-    { name: 'Gassin', desc: "L'un des plus beaux villages de France", img: imgs.tropez, dist: '25 min' },
-    { name: 'Gigaro & Rayol', desc: 'Plages et jardins préservés', img: imgs.plage, dist: '35 min' },
+    {
+      name: 'Grimaud',
+      dist: '3 km',
+      img: imgs.grimaud,
+      alt: 'Ruelle pavée du village médiéval de Grimaud',
+      desc: "L'âme provençale du Golfe de Saint-Tropez. Perché sur sa colline, Grimaud est dominé par les ruines romantiques de son château du XIe siècle, accessible par un sentier offrant un panorama exceptionnel sur la baie.",
+      note: "Ruelles pavées, maisons en pierre ocre, placettes ombragées, galeries d'art et marché du jeudi matin.",
+    },
+    {
+      name: 'Port Grimaud',
+      dist: '5 km',
+      img: imgs.portGrimaud,
+      alt: 'Vue aérienne des canaux de Port Grimaud',
+      desc: "La Venise Provençale. Créée dans les années 1960 par l'architecte François Spoerry, cette cité lacustre unique en Europe est traversée par plus de sept kilomètres de canaux.",
+      note: 'Maisons colorées aux volets pastel et anneaux privés pour accoster directement devant sa porte.',
+    },
+    {
+      name: 'Gassin',
+      dist: '10 km',
+      img: imgs.gassin,
+      alt: 'Ruelle fleurie dans le village perché de Gassin',
+      desc: "Classé parmi les Plus Beaux Villages de France, Gassin couronne un piton rocheux offrant l'une des vues panoramiques les plus spectaculaires sur le Golfe de Saint-Tropez et le massif des Maures.",
+      note: 'Centre médiéval, maisons serrées contre le vent et les pirates, place dei Barri idéale au coucher du soleil.',
+    },
+    {
+      name: 'Sainte-Maxime',
+      dist: '12 km',
+      img: imgs.sainteMaxime,
+      alt: 'Plage et front de mer de Sainte-Maxime',
+      desc: 'Station balnéaire animée et élégante, Sainte-Maxime déploie un front de mer de plus de deux kilomètres, ponctué de plages de sable fin.',
+      note: 'Une adresse facile pour profiter de la mer, des terrasses et de la douceur du Golfe.',
+    },
+    {
+      name: 'Saint-Tropez',
+      dist: '12 km',
+      img: imgs.saintTropez,
+      alt: 'Port de plaisance de Saint-Tropez',
+      desc: "Port et village mythique de la Côte d'Azur, mêlant authenticité provençale et glamour international, entre le quai Sénéquier face aux yachts et les ruelles du quartier de la Ponche.",
+      note: 'Place des Lices, marché provençal, boutiques de créateurs, galeries, musées et soirées tropéziennes.',
+    },
+    {
+      name: 'Ramatuelle',
+      dist: '17 km',
+      img: imgs.ramatuelle,
+      alt: 'Village perché de Ramatuelle et paysage provençal',
+      desc: "Village perché aux ruelles provençales typiques, dominant les vignobles et la presqu'île de Saint-Tropez. Son centre historique, fleuri et préservé, s'anime autour de son marché.",
+      note: 'Porte d’entrée de Pampelonne, de ses clubs de plage chics et de domaines viticoles réputés.',
+    },
+    {
+      name: 'La Croix-Valmer',
+      dist: '17 km',
+      img: imgs.croixValmer,
+      alt: 'Plage de Gigaro à La Croix-Valmer vue du ciel',
+      desc: 'Station familiale et préservée, nichée entre vignobles et pinèdes au sud du Golfe de Saint-Tropez, dans une atmosphère authentique et reposante.',
+      note: 'Marché du dimanche matin place des Palmiers et plages de Gigaro aux eaux cristallines.',
+    },
+    {
+      name: 'Rayol-Canadel-sur-Mer',
+      dist: '24 km',
+      img: imgs.rayol,
+      alt: 'Jardin méditerranéen du Domaine du Rayol',
+      desc: "Niché entre mer et montagne sur la Corniche des Maures, le Rayol-Canadel est l'un des villages les plus secrets et préservés du littoral varois.",
+      note: 'Domaine du Rayol, criques discrètes, plages de galets, pins parasols et eau cristalline propice à la plongée.',
+    },
   ]
 
   return (
@@ -738,28 +804,41 @@ function ExploreSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-2 gap-7 lg:gap-9">
           {destinations.map((d, i) => (
-            <div key={d.name} className={`reveal reveal-delay-${Math.min(i + 1, 6)}`}>
-              <div className="img-zoom aspect-[5/3] mb-4">
+            <article
+              key={d.name}
+              className={`reveal reveal-delay-${Math.min(i + 1, 6)} bg-ivory/75 border border-bronze/15`}
+            >
+              <div className="img-zoom aspect-[16/10]">
                 <img
                   src={d.img}
-                  alt={d.name}
+                  alt={d.alt}
                   className="w-full h-full object-cover"
                   style={{ backgroundColor: '#9B8B7A' }}
                   loading="lazy"
                 />
               </div>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-display font-light text-charbon text-[22px] mb-1">{d.name}</h3>
-                  <p className="font-body font-light text-taupe text-[13px]">{d.desc}</p>
+              <div className="p-6 lg:p-8">
+                <div className="flex items-start justify-between gap-4 mb-5">
+                  <h3 className="font-display font-light text-charbon text-[28px] lg:text-[34px] leading-none">{d.name}</h3>
+                  <span className="font-body text-[10px] tracking-[0.18em] uppercase text-bronze mt-1 flex-shrink-0">
+                    {d.dist}
+                  </span>
                 </div>
-                <span className="font-body text-[9.5px] tracking-[0.18em] uppercase text-bronze mt-1 flex-shrink-0">
-                  {d.dist}
-                </span>
+                <p className="font-body font-light text-taupe text-[15.5px] leading-relaxed">
+                  {d.desc}
+                </p>
+                <div className="mt-6 pt-5 border-t border-bronze/20">
+                  <p className="font-body text-[10px] tracking-[0.18em] uppercase text-bronze mb-2">
+                    À ne pas manquer
+                  </p>
+                  <p className="font-body font-light text-charbon/75 text-[14px] leading-relaxed">
+                    {d.note}
+                  </p>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

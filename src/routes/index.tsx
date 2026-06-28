@@ -25,6 +25,11 @@ const imgs = {
   chambre3: '/images/chambre-villa-les-palmiers-3.jpeg',
 }
 
+const airbnbUrl = 'http://www.airbnb.fr/h/lavilladespalmiers'
+const villaAddress = '244 route du Plan de la Tour, 83310 Grimaud'
+const mapLat = '43.2768'
+const mapLon = '6.54751'
+
 // ── Hooks ────────────────────────────────────────────────────────────────────
 
 function useScrolled(threshold = 60) {
@@ -120,7 +125,7 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
         </div>
 
         <a
-          href="https://airbnb.com"
+          href={airbnbUrl}
           target="_blank"
           rel="noopener noreferrer"
           className={`hidden lg:inline-block font-body text-[10px] tracking-[0.2em] uppercase px-6 py-3 border transition-all duration-300 ${
@@ -158,7 +163,7 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
             </a>
           ))}
           <a
-            href="https://airbnb.com"
+            href={airbnbUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 block text-center font-body text-[10px] tracking-[0.2em] uppercase py-4 border border-charbon text-charbon"
@@ -216,7 +221,7 @@ function Hero() {
               Découvrir
             </a>
             <a
-              href="https://airbnb.com"
+              href={airbnbUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="font-body text-[10px] tracking-[0.22em] uppercase px-7 py-4 bg-bronze text-white border border-bronze hover:bg-bronze-light transition-all duration-300"
@@ -335,25 +340,37 @@ function VillaSection() {
           <div className="reveal order-1 lg:order-2 lg:pl-4">
             <Label num="01" text="La Villa" />
             <Title>
-              L'esprit de<br /><em>Villa Les Palmiers</em>
+              Bienvenue à<br /><em>Villa Les Palmiers</em>
             </Title>
             <Divider />
 
             <p className="font-display font-light text-charbon leading-tight text-[26px] lg:text-[32px] mb-8">
-              Villa Les Palmiers est avant tout une maison de famille.
+              Une élégante villa contemporaine construite en 2019, située à Grimaud, au cœur du Golfe de Saint-Tropez.
             </p>
             <div className="space-y-6 font-body font-light text-taupe leading-[2.05] text-[16.5px] lg:text-[17px] mb-10">
               <p>
-                Construite en 2019, elle a été imaginée comme un lieu où l'architecture contemporaine s'efface au profit de la lumière, du paysage et de l'art de vivre méditerranéen. Chaque espace a été pensé pour créer une continuité naturelle entre l'intérieur, le jardin et la piscine, offrant une sensation permanente d'ouverture et de sérénité.
+                Nichée dans un domaine privé et sécurisé de 8 villas, cette propriété de plain-pied d'environ 185 m² offre un cadre privilégié entre les plages, les vignes et le village de Grimaud.
               </p>
               <p>
-                Nichée à Grimaud, à quelques minutes de Saint-Tropez, la propriété bénéficie d'un environnement privilégié, entre les vignobles du Golfe et la Méditerranée.
+                Implantée sur un magnifique terrain paysager de 2 000 m² planté d'une quinzaine de palmiers et d'essences méditerranéennes et entouré de pins parasols, la villa a été pensée comme une véritable maison de vacances familiale, mêlant confort, élégance et douceur de vivre. Vous profiterez d'une grande piscine à débordement, de plusieurs espaces extérieurs aménagés, d'un terrain de pétanque éclairé, d'une table de ping-pong ainsi que d'une vaste terrasse avec pergola et salon d'été.
               </p>
               <p>
-                Son jardin puise sa richesse dans une ressource naturelle rare : la nappe phréatique alimentée par le cours d'eau de l'Avelan, qui longe discrètement la propriété. Cette présence de l'eau permet au paysage de conserver toute sa fraîcheur et son caractère luxuriant au fil des saisons.
+                La propriété peut accueillir jusqu'à 6 voyageurs dans un environnement calme, résidentiel et particulièrement reposant, avec 3 chambres avec leur salle de bains privative.
               </p>
               <p>
-                Plus qu'un lieu de séjour, Villa Les Palmiers est une invitation à ralentir, à partager des moments précieux et à profiter pleinement de la douceur de vivre provençale.
+                La Villa bénéficie de très beaux volumes baignés de lumière grâce à ses larges baies vitrées ouvertes sur le jardin et la piscine. Décorée avec soin par une architecte d'intérieur, elle offre une atmosphère chaleureuse et raffinée, inspirée de l'art de vivre méditerranéen.
+              </p>
+              <p>
+                Le vaste séjour s'ouvre directement sur les terrasses et les extérieurs. La cuisine moderne est entièrement équipée pour des séjours confortables en famille ou entre amis.
+              </p>
+              <p>
+                La villa dispose de trois chambres avec leurs salles d'eau privatives : une suite principale avec lit queen size, nombreux rangements, télévision et salle de bain avec douche à l'italienne, sèche-serviette et sèche-cheveux ; deux WC avec lavabos séparés ; et deux chambres équipées de lits modulables pouvant être configurés en lits doubles ou lits simples selon vos besoins, chacune avec salle d'eau et douche à l'italienne, sèche-serviette et sèche-cheveux.
+              </p>
+              <p>
+                La maison est entièrement climatisée et dispose d'une connexion fibre très haut débit, de deux Smart TV, d'un coffre-fort ainsi que de deux places de stationnement couvertes, dont une équipée d'une borne de recharge rapide pour véhicule électrique.
+              </p>
+              <p>
+                Le linge de maison, les serviettes de toilette ainsi que les serviettes de piscine et de plage sont fournis durant tout le séjour.
               </p>
             </div>
 
@@ -592,8 +609,10 @@ function GardenSection() {
             </p>
             <div className="space-y-7">
               {[
-                ['Piscine chauffée', 'Un bassin pensé comme le point de rencontre naturel des journées d’été.'],
+                ['Piscine à débordement', "Un bassin sécurisé par une alarme anti-immersion, pensé comme le point de rencontre naturel des journées d'été."],
                 ['Terrasses en travertin', 'Des espaces ouverts pour déjeuner, lire ou se retrouver au soleil.'],
+                ['Terrain de pétanque éclairé', 'Un espace de jeu convivial pour prolonger les fins de journée en extérieur.'],
+                ['Table de ping-pong', 'Un équipement simple et familial pour rythmer les vacances au jardin.'],
                 ['Jardin méditerranéen', 'Une composition végétale généreuse, entretenue pour préserver fraîcheur et intimité.'],
               ].map(([title, text]) => (
                 <div key={title} className="border-t border-bronze/20 pt-5">
@@ -606,7 +625,7 @@ function GardenSection() {
         </div>
 
         <div className="reveal border-t border-travertin pt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {['Piscine à débordement', 'Terrain de pétanque', 'Terrasses en travertin', 'Transats & loungers'].map(item => (
+          {['Piscine à débordement', 'Terrain de pétanque éclairé', 'Table de ping-pong', 'Terrasses en travertin'].map(item => (
             <div key={item}>
               <div className="w-5 h-px bg-bronze mb-3" />
               <p className="font-body text-[11px] tracking-[0.18em] uppercase text-taupe">{item}</p>
@@ -727,19 +746,19 @@ function StaySection() {
   const categories = [
     {
       title: 'Arrivée & Départ',
-      items: ['Check-in 16h — 20h', 'Check-out avant 11h', 'Accueil personnalisé', 'Remise des clés en main'],
+      items: ['Check-in 15h — 20h', 'Check-out avant 11h', 'Accueil personnalisé', 'Remise des clés en main'],
     },
     {
       title: 'Confort',
-      items: ['Wi-Fi haut débit', 'Climatisation', 'Piscine chauffée', 'Parking privatif'],
+      items: ['Wi-Fi fibre très haut débit', 'Climatisation', 'Piscine chauffée', 'Parking couvert avec recharge électrique'],
     },
     {
       title: 'Sécurité',
-      items: ['Alarme sécurisée', 'Domaine privé', 'Éclairage extérieur', 'Interphone'],
+      items: ['Alarme sécurisée', 'Domaine privé', 'Piscine avec alarme anti-immersion', 'Éclairage extérieur'],
     },
     {
-      title: 'Règlement',
-      items: ['Non-fumeur', 'Animaux non acceptés', 'Événements sur demande', 'Calme après 22h'],
+      title: 'Accessibilité',
+      items: ['Villa de plain-pied', 'Accessible aux personnes à mobilité réduite', "Accès aux douches à l'italienne limité à 80 cm de large"],
     },
   ]
 
@@ -778,7 +797,8 @@ function StaySection() {
 function ServicesSection() {
   const services = [
     { name: 'Piscine chauffée', desc: 'Eau à température idéale tout au long de la saison' },
-    { name: 'Scooter disponible', desc: 'Pour explorer librement le Golfe de Saint-Tropez' },
+    { name: 'Terrain de pétanque éclairé', desc: 'Un espace convivial pour les fins de journée au jardin' },
+    { name: 'Table de ping-pong', desc: 'Une activité familiale disponible directement sur place' },
     { name: 'Recharge véhicule électrique', desc: 'Borne de recharge sur site' },
     { name: 'Service de ménage', desc: 'Prestation disponible en option selon la durée du séjour' },
     { name: 'Accueil personnalisé', desc: 'Remise des clés et présentation complète de la villa' },
@@ -830,30 +850,31 @@ function ContactSection() {
             <Divider />
 
             <p className="font-body font-light text-taupe leading-[2.1] text-[16.5px] mb-10">
-              Domaine des Lauriers<br />
-              Grimaud · Var · France
+              Villa Les Palmiers<br />
+              {villaAddress}<br />
+              France
             </p>
 
             <div className="space-y-4 mb-10">
-              <a href="tel:+33600000000" className="flex items-center gap-4 group">
+              <a href="tel:+33609277382" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 border border-travertin flex items-center justify-center group-hover:border-bronze transition-colors duration-300">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-bronze">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.97-.97a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[15px]">+33 (0)6 00 00 00 00</span>
+                <span className="font-body font-light text-taupe text-[15px]">Jérôme : 06 09 27 73 82</span>
               </a>
 
-              <a href="https://wa.me/33600000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+              <a href="tel:+33612294137" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 border border-travertin flex items-center justify-center group-hover:border-olive transition-colors duration-300">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-olive">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-olive">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.97-.97a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[15px]">WhatsApp</span>
+                <span className="font-body font-light text-taupe text-[15px]">Gérard : 06 12 29 41 37</span>
               </a>
 
-              <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+              <a href={airbnbUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 border border-travertin flex items-center justify-center group-hover:border-[#FF5A5F] transition-colors duration-300">
                   <svg width="13" height="13" viewBox="0 0 32 32" fill="currentColor" className="text-[#FF5A5F]">
                     <path d="M16 1c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm0 4c4.418 0 8.418 2.238 10.75 5.875-.563 2.25-2.063 5.125-4.875 7.75C19.312 20.5 17.5 22 16 22.875 14.5 22 12.688 20.5 10.125 18.625 7.313 16 5.813 13.125 5.25 10.875 7.582 7.238 11.582 5 16 5zm0 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -866,7 +887,7 @@ function ContactSection() {
             <div className="aspect-[4/3] overflow-hidden border border-travertin">
               <iframe
                 title="Villa Les Palmiers — Grimaud, Golfe de Saint-Tropez"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=6.55%2C43.23%2C6.78%2C43.34&layer=mapnik&marker=43.276%2C6.665"
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${Number(mapLon) - 0.015}%2C${Number(mapLat) - 0.015}%2C${Number(mapLon) + 0.015}%2C${Number(mapLat) + 0.015}&layer=mapnik&marker=${mapLat}%2C${mapLon}`}
                 className="w-full h-full border-0"
                 loading="lazy"
               />
@@ -924,7 +945,7 @@ function Footer() {
               Instagram
             </a>
             <span className="text-bronze/50">·</span>
-            <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer"
+            <a href={airbnbUrl} target="_blank" rel="noopener noreferrer"
               className="font-body text-[10.5px] tracking-[0.18em] uppercase text-taupe hover:text-bronze transition-colors duration-300">
               Airbnb
             </a>

@@ -7,8 +7,8 @@ const U = 'https://images.unsplash.com/photo-'
 const Q = (w: number) => `?auto=format&fit=crop&w=${w}&q=82`
 
 const imgs = {
-  hero:     U + '1570129477492-45c003dc4501' + Q(1920),
-  villa:    U + '1512917774080-9991f1c4c750' + Q(1200),
+  hero:     '/images/villa-les-palmiers-accueil.png',
+  villa:    '/images/villa-les-palmiers-accueil.png',
   salon:    U + '1600566752355-35792bedcfea' + Q(1200),
   cuisine:  U + '1556909114-f6e7ad7d3136'   + Q(900),
   salle:    U + '1617806118233-18e1de247200' + Q(900),
@@ -91,6 +91,7 @@ function Divider() {
 // ── Navigation ───────────────────────────────────────────────────────────────
 
 const navLinks = [
+  { href: '#bienvenue', label: 'Bienvenue' },
   { href: '#villa', label: 'La Villa' },
   { href: '#interieurs', label: 'Les Intérieurs' },
   { href: '#chambres', label: 'Les Chambres' },
@@ -267,6 +268,64 @@ function StatsBar() {
         </div>
       </div>
     </div>
+  )
+}
+
+// ── Bienvenue ────────────────────────────────────────────────────────────────
+
+function WelcomeSection() {
+  return (
+    <section id="bienvenue" className="py-28 lg:py-36 bg-ivory">
+      <div className="max-w-[1180px] mx-auto px-7 lg:px-16">
+        <div className="reveal grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
+          <div className="lg:sticky lg:top-28">
+            <Label num="00" text="Bienvenue" />
+            <h2
+              className="font-display font-light text-charbon leading-[0.98]"
+              style={{ fontSize: 'clamp(42px, 5vw, 68px)' }}
+            >
+              Chers<br /><em>voyageurs</em>
+            </h2>
+            <Divider />
+            <p className="font-body text-[9.5px] tracking-[0.24em] uppercase text-bronze">
+              Gérard & Jérôme Laurent · Vos hôtes
+            </p>
+          </div>
+
+          <div className="bg-travertin/55 px-7 py-9 sm:px-10 sm:py-11 lg:px-14 lg:py-14 border-l border-bronze/45">
+            <div className="space-y-6 font-body font-light text-taupe leading-[2] text-[15px] lg:text-[16px]">
+              <p>
+                Nous sommes heureux de vous accueillir à la Villa Les Palmiers et vous remercions d'avoir choisi notre maison pour votre séjour.
+              </p>
+              <p>
+                Conçue comme un lieu de détente et de convivialité, cette villa familiale a été aménagée avec soin afin de vous offrir confort, calme et intimité au cœur du Golfe de Saint-Tropez.
+              </p>
+              <p>
+                Dans ce livret, vous trouverez toutes les informations utiles sur la maison et ses équipements, ainsi que nos meilleures recommandations pour découvrir Grimaud, Port Grimaud, Saint-Tropez et les environs.
+              </p>
+              <p>
+                Nous espérons que vous passerez un agréable séjour, riche en découvertes et en beaux souvenirs. Si vous avez la moindre question ou un besoin particulier, n'hésitez pas à nous contacter : nous serons ravis de vous aider.
+              </p>
+              <p>
+                Profitez pleinement de votre séjour et merci d'avoir choisi la Villa Les Palmiers pour vos vacances.
+              </p>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-bronze/30">
+              <p className="font-display font-light italic text-charbon text-[30px] lg:text-[38px] leading-tight">
+                Bienvenue chez vous.
+              </p>
+              <p className="mt-5 font-body text-[10px] tracking-[0.22em] uppercase text-bronze">
+                Gérard & Jérôme Laurent
+              </p>
+              <p className="mt-1 font-body font-light text-taupe text-[13px]">
+                Vos hôtes
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -951,6 +1010,7 @@ function VillaPage() {
       <Navigation scrolled={scrolled} />
       <Hero />
       <StatsBar />
+      <WelcomeSection />
       <VillaSection />
       <InteriorsSection />
       <BedroomsSection />

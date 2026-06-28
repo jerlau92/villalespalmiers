@@ -17,37 +17,12 @@ import { useEffect, useState } from 'react'
 
 // ── Image constants ──────────────────────────────────────────────────────────
 
-const U = 'https://images.unsplash.com/photo-'
-const Q = (w: number) => `?auto=format&fit=crop&w=${w}&q=82`
-
 const imgs = {
   hero:     '/images/villa-les-palmiers-accueil.png',
   villa:    '/images/villa-les-palmiers-accueil.png',
-  salon:    U + '1600566752355-35792bedcfea' + Q(1200),
-  cuisine:  U + '1556909114-f6e7ad7d3136'   + Q(900),
-  salle:    U + '1617806118233-18e1de247200' + Q(900),
-  detail:   U + '1586023492125-27b2c045efd7' + Q(700),
   chambre1: '/images/chambre-villa-les-palmiers-1.jpeg',
   chambre2: '/images/chambre-villa-les-palmiers-2.jpeg',
   chambre3: '/images/chambre-villa-les-palmiers-3.jpeg',
-  piscine:  U + '1566073771259-a9a8fe8671a7' + Q(1920),
-  jardin:   U + '1490750967868-88df5691cc33' + Q(800),
-  terrasse: U + '1533044307260-24af8186fcb0' + Q(800),
-  nuit:     U + '1571003123894-1f0594d2b5d9' + Q(1920),
-  rose:     U + '1558618666-fcd25c85cd64'   + Q(800),
-  petitdej: U + '1533089860892-a7c6f0a88666' + Q(800),
-  dejeuner: U + '1414235077428-338989a2e8c0' + Q(800),
-  tropez:   U + '1557804497-4b671f27e3a0'   + Q(700),
-  plage:    U + '1507525428034-b723cf961d3e' + Q(700),
-  provence: U + '1523531294919-4bcd7c65d049' + Q(700),
-  grimaud: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grimaud-village-06.jpg?width=900',
-  portGrimaud: 'https://commons.wikimedia.org/wiki/Special:FilePath/La%20cit%C3%A9%20lacustre%20de%20Port%20Grimaud%2C%20vue%20du%20ciel.jpg?width=900',
-  gassin: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rue%20de%20gassin.jpg?width=900',
-  sainteMaxime: 'https://commons.wikimedia.org/wiki/Special:FilePath/Digue%20et%20plage%20de%20Sainte-Maxime.jpg?width=900',
-  saintTropez: 'https://commons.wikimedia.org/wiki/Special:FilePath/Saint-Tropez%20-%20Port%20de%20plaisance%2001.jpg?width=900',
-  ramatuelle: 'https://commons.wikimedia.org/wiki/Special:FilePath/83350%20Ramatuelle%2C%20France%20-%20panoramio.jpg?width=900',
-  croixValmer: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20Gigaro%20Beach%20in%20La%20Croix-Valmer%2C%20France%20%2852723801211%29.jpg?width=900',
-  rayol: 'https://commons.wikimedia.org/wiki/Special:FilePath/Domaine%20du%20Rayol%202.JPG?width=900',
 }
 
 // ── Hooks ────────────────────────────────────────────────────────────────────
@@ -76,12 +51,6 @@ function useScrollReveal() {
 }
 
 // ── Utilities ────────────────────────────────────────────────────────────────
-
-function encode(data: Record<string, string>) {
-  return Object.entries(data)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
-    .join('&')
-}
 
 // ── Shared primitives ────────────────────────────────────────────────────────
 
@@ -113,12 +82,12 @@ function Divider() {
 // ── Navigation ───────────────────────────────────────────────────────────────
 
 const navLinks = [
-  { href: '#bienvenue', label: 'Bienvenue' },
   { href: '#villa', label: 'La Villa' },
   { href: '#interieurs', label: 'Les Intérieurs' },
   { href: '#chambres', label: 'Les Chambres' },
   { href: '#jardin', label: 'Jardin & Piscine' },
-  { href: '#art-de-vivre', label: 'Art de Vivre' },
+  { href: '#explorer', label: 'Explorer' },
+  { href: '#sejour', label: 'Séjour' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -297,55 +266,42 @@ function StatsBar() {
 
 function WelcomeSection() {
   return (
-    <section id="bienvenue" className="py-28 lg:py-36 bg-ivory">
-      <div className="max-w-[1180px] mx-auto px-7 lg:px-16">
-        <div className="reveal grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
-          <div className="lg:sticky lg:top-28">
-            <Label num="00" text="Bienvenue" />
-            <h2
-              className="font-display font-light text-charbon leading-[0.98]"
-              style={{ fontSize: 'clamp(42px, 5vw, 68px)' }}
-            >
-              Chers<br /><em>voyageurs</em>
-            </h2>
-            <Divider />
-            <p className="font-body text-[9.5px] tracking-[0.24em] uppercase text-bronze">
-              Gérard & Jérôme Laurent · Vos hôtes
-            </p>
-          </div>
+    <section id="bienvenue" className="bg-travertin/55 px-7 py-9 sm:px-10 sm:py-11 lg:px-14 lg:py-14 border-l border-bronze/45">
+      <div className="mb-8">
+        <Label num="08" text="Mot d'accueil" />
+        <h3
+          className="font-display font-light text-charbon leading-[0.98]"
+          style={{ fontSize: 'clamp(38px, 4.5vw, 62px)' }}
+        >
+          Au plaisir de<br /><em>vous accueillir</em>
+        </h3>
+      </div>
 
-          <div className="bg-travertin/55 px-7 py-9 sm:px-10 sm:py-11 lg:px-14 lg:py-14 border-l border-bronze/45">
-            <div className="space-y-6 font-body font-light text-taupe leading-[2] text-[16px] lg:text-[17px]">
-              <p>
-                Nous sommes heureux de vous accueillir à la Villa Les Palmiers et vous remercions d'avoir choisi notre maison pour votre séjour.
-              </p>
-              <p>
-                Conçue comme un lieu de détente et de convivialité, cette villa familiale a été aménagée avec soin afin de vous offrir confort, calme et intimité au cœur du Golfe de Saint-Tropez.
-              </p>
-              <p>
-                Dans ce livret, vous trouverez toutes les informations utiles sur la maison et ses équipements, ainsi que nos meilleures recommandations pour découvrir Grimaud, Port Grimaud, Saint-Tropez et les environs.
-              </p>
-              <p>
-                Nous espérons que vous passerez un agréable séjour, riche en découvertes et en beaux souvenirs. Si vous avez la moindre question ou un besoin particulier, n'hésitez pas à nous contacter : nous serons ravis de vous aider.
-              </p>
-              <p>
-                Profitez pleinement de votre séjour et merci d'avoir choisi la Villa Les Palmiers pour vos vacances.
-              </p>
-            </div>
+      <div className="space-y-6 font-body font-light text-taupe leading-[2] text-[16px] lg:text-[17px]">
+        <p>
+          Nous serions heureux de vous accueillir à Villa Les Palmiers et de vous faire découvrir le charme du Golfe de Saint-Tropez.
+        </p>
+        <p>
+          Nous avons imaginé cette villa comme un lieu de détente où vous pourrez profiter pleinement de vos vacances, dans un cadre calme, confortable et élégant.
+        </p>
+        <p>
+          Ce site a été conçu pour vous faire découvrir Villa Les Palmiers et vous permettre de vous projeter dans vos prochaines vacances. Vous y trouverez une présentation complète de la villa, de ses équipements, de ses espaces de vie et de son environnement, afin que vous puissiez imaginer dès aujourd'hui les moments de détente, de convivialité et d'évasion qui vous attendent. Nous espérons que cette visite virtuelle vous donnera envie de vivre l'expérience Villa Les Palmiers.
+        </p>
+        <p>
+          Si vous avez la moindre question avant ou pendant votre séjour, n'hésitez pas à nous contacter. Nous serons ravis de vous accompagner et de faire en sorte que votre expérience soit la plus agréable possible.
+        </p>
+        <p>
+          Au plaisir de vous accueillir prochainement à Villa Les Palmiers.
+        </p>
+      </div>
 
-            <div className="mt-10 pt-8 border-t border-bronze/30">
-              <p className="font-display font-light italic text-charbon text-[30px] lg:text-[38px] leading-tight">
-                Bienvenue chez vous.
-              </p>
-              <p className="mt-5 font-body text-[10px] tracking-[0.22em] uppercase text-bronze">
-                Gérard & Jérôme Laurent
-              </p>
-              <p className="mt-1 font-body font-light text-taupe text-[13px]">
-                Vos hôtes
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="mt-10 pt-8 border-t border-bronze/30">
+        <p className="font-body text-[10px] tracking-[0.22em] uppercase text-bronze">
+          Gérard & Jérôme Laurent
+        </p>
+        <p className="mt-1 font-body font-light text-taupe text-[13px]">
+          Vos hôtes
+        </p>
       </div>
     </section>
   )
@@ -436,19 +392,30 @@ function InteriorsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-          <div className="reveal-scale lg:col-span-2 img-zoom aspect-[16/10]">
-            <img src={imgs.salon} alt="Salon" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
-          </div>
-          <div className="reveal-scale reveal-delay-1 img-zoom aspect-[3/4]">
-            <img src={imgs.cuisine} alt="Cuisine" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
-          </div>
-          <div className="reveal-scale reveal-delay-2 img-zoom aspect-[4/3]">
-            <img src={imgs.salle} alt="Salle à manger" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
-          </div>
-          <div className="reveal-scale reveal-delay-3 img-zoom aspect-[4/3]">
-            <img src={imgs.detail} alt="Détail intérieur" className="w-full h-full object-cover" style={{ backgroundColor: '#B8A894' }} loading="lazy" />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            ['Salon', 'Un espace ouvert sur la terrasse et le jardin, pensé pour les moments calmes comme les soirées partagées.'],
+            ['Cuisine ouverte', 'Une cuisine contemporaine intégrée à la pièce de vie, pratique pour cuisiner et recevoir.'],
+            ['Salle à manger', 'Une table conviviale au cœur de la maison, prolongée naturellement par les extérieurs.'],
+            ['Baies vitrées', "La lumière traverse les pièces et crée une continuité douce entre l'intérieur, le jardin et la piscine."],
+          ].map(([title, text], i) => (
+            <article
+              key={title}
+              className={`reveal-scale reveal-delay-${i + 1} min-h-[280px] border border-bronze/20 bg-ivory/70 p-7 lg:p-8 flex flex-col justify-between`}
+            >
+              <div>
+                <span className="font-body text-[10px] tracking-[0.24em] uppercase text-bronze">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-7 font-display font-light text-charbon text-[30px] lg:text-[36px] leading-none">
+                  {title}
+                </h3>
+              </div>
+              <p className="font-body font-light text-taupe text-[15.5px] leading-relaxed">
+                {text}
+              </p>
+            </article>
+          ))}
         </div>
 
         <div className="mt-8 flex items-center gap-4">
@@ -591,12 +558,8 @@ function BedroomsSection() {
 function GardenSection() {
   return (
     <section id="jardin" className="bg-ivory">
-      <div className="relative h-[72vh] min-h-[480px] flex items-end overflow-hidden">
-        <div
-          className="hero-img absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${imgs.piscine})`, backgroundColor: '#9B8B7A' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ivory via-taupe/10 to-transparent" />
+      <div className="relative min-h-[480px] flex items-end overflow-hidden bg-[linear-gradient(135deg,#E8DDD0_0%,#F8F5F0_52%,#D4BC9E_100%)]">
+        <div className="absolute inset-x-0 bottom-0 h-px bg-bronze/25" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-7 lg:px-16 pb-14 lg:pb-20 w-full">
           <div className="reveal">
             <Label num="04" text="Jardin & Piscine" />
@@ -623,14 +586,21 @@ function GardenSection() {
             </div>
           </div>
 
-          <div className="reveal-right">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="img-zoom aspect-square">
-                <img src={imgs.jardin} alt="Jardin méditerranéen" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
-              </div>
-              <div className="img-zoom aspect-square mt-10">
-                <img src={imgs.terrasse} alt="Terrasse travertin" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
-              </div>
+          <div className="reveal-right border border-bronze/25 bg-travertin/45 p-8 lg:p-10">
+            <p className="font-body text-[10px] tracking-[0.24em] uppercase text-bronze mb-8">
+              Extérieurs
+            </p>
+            <div className="space-y-7">
+              {[
+                ['Piscine chauffée', 'Un bassin pensé comme le point de rencontre naturel des journées d’été.'],
+                ['Terrasses en travertin', 'Des espaces ouverts pour déjeuner, lire ou se retrouver au soleil.'],
+                ['Jardin méditerranéen', 'Une composition végétale généreuse, entretenue pour préserver fraîcheur et intimité.'],
+              ].map(([title, text]) => (
+                <div key={title} className="border-t border-bronze/20 pt-5">
+                  <h3 className="font-display font-light text-charbon text-[28px] leading-tight">{title}</h3>
+                  <p className="mt-2 font-body font-light text-taupe text-[15px] leading-relaxed">{text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -645,76 +615,6 @@ function GardenSection() {
         </div>
       </div>
 
-      <div className="pb-20">
-        <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
-          <div className="reveal-scale img-zoom aspect-[21/9] min-h-[240px]">
-            <img src={imgs.nuit} alt="Piscine de nuit" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
-          </div>
-          <p className="font-body text-[10.5px] tracking-[0.22em] uppercase text-taupe mt-4">
-            Piscine chauffée · Nuit d'été
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ── Art de Vivre ─────────────────────────────────────────────────────────────
-
-function ArtDeVivreSection() {
-  return (
-    <section id="art-de-vivre" className="py-32 lg:py-44 bg-ivory">
-      <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
-        <div className="reveal mb-14 lg:mb-20">
-          <Label num="05" text="Art de Vivre" />
-          <Title>
-            Les instants<br /><em>provençaux</em>
-          </Title>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="reveal-left lg:row-span-2 img-zoom aspect-[3/5] md:aspect-auto">
-            <img src={imgs.rose} alt="Rosé de Provence" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
-          </div>
-          <div className="reveal reveal-delay-1 img-zoom aspect-[4/3]">
-            <img src={imgs.petitdej} alt="Petit-déjeuner au soleil" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
-          </div>
-          <div className="reveal reveal-delay-2 img-zoom aspect-[4/3]">
-            <img src={imgs.dejeuner} alt="Déjeuner en terrasse" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
-          </div>
-          <div className="reveal reveal-delay-3 md:col-span-1 lg:col-span-2 bg-travertin p-10 lg:p-14 flex flex-col justify-center">
-            <blockquote
-              className="font-display font-light italic text-charbon mb-6 leading-[1.35]"
-              style={{ fontSize: 'clamp(20px, 2.8vw, 32px)' }}
-            >
-              "Une terrasse au soleil couchant,<br />
-              un verre de rosé, le chant des cigales..."
-            </blockquote>
-            <div className="flex items-center gap-4">
-              <div className="w-7 h-px bg-bronze" />
-              <span className="font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze">L'art de vivre provençal</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="reveal mt-10 flex flex-wrap gap-2.5">
-          {[
-            'Petit-déjeuner au soleil',
-            'Apéritif au bord de la piscine',
-            'Dîner aux chandelles',
-            'Rosé de Provence',
-            'Cigales & lauriers',
-            'Nuits étoilées',
-          ].map(tag => (
-            <span
-              key={tag}
-              className="font-body text-[9.5px] tracking-[0.15em] uppercase text-taupe border border-travertin px-4 py-2.5"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   )
 }
@@ -726,64 +626,48 @@ function ExploreSection() {
     {
       name: 'Grimaud',
       dist: '3 km',
-      img: imgs.grimaud,
-      alt: 'Ruelle pavée du village médiéval de Grimaud',
       desc: "L'âme provençale du Golfe de Saint-Tropez. Perché sur sa colline, Grimaud est dominé par les ruines romantiques de son château du XIe siècle, accessible par un sentier offrant un panorama exceptionnel sur la baie.",
       note: "Ruelles pavées, maisons en pierre ocre, placettes ombragées, galeries d'art et marché du jeudi matin.",
     },
     {
       name: 'Port Grimaud',
       dist: '5 km',
-      img: imgs.portGrimaud,
-      alt: 'Vue aérienne des canaux de Port Grimaud',
       desc: "La Venise Provençale. Créée dans les années 1960 par l'architecte François Spoerry, cette cité lacustre unique en Europe est traversée par plus de sept kilomètres de canaux.",
       note: 'Maisons colorées aux volets pastel et anneaux privés pour accoster directement devant sa porte.',
     },
     {
       name: 'Gassin',
       dist: '10 km',
-      img: imgs.gassin,
-      alt: 'Ruelle fleurie dans le village perché de Gassin',
       desc: "Classé parmi les Plus Beaux Villages de France, Gassin couronne un piton rocheux offrant l'une des vues panoramiques les plus spectaculaires sur le Golfe de Saint-Tropez et le massif des Maures.",
       note: 'Centre médiéval, maisons serrées contre le vent et les pirates, place dei Barri idéale au coucher du soleil.',
     },
     {
       name: 'Sainte-Maxime',
       dist: '12 km',
-      img: imgs.sainteMaxime,
-      alt: 'Plage et front de mer de Sainte-Maxime',
       desc: 'Station balnéaire animée et élégante, Sainte-Maxime déploie un front de mer de plus de deux kilomètres, ponctué de plages de sable fin.',
       note: 'Une adresse facile pour profiter de la mer, des terrasses et de la douceur du Golfe.',
     },
     {
       name: 'Saint-Tropez',
       dist: '12 km',
-      img: imgs.saintTropez,
-      alt: 'Port de plaisance de Saint-Tropez',
       desc: "Port et village mythique de la Côte d'Azur, mêlant authenticité provençale et glamour international, entre le quai Sénéquier face aux yachts et les ruelles du quartier de la Ponche.",
       note: 'Place des Lices, marché provençal, boutiques de créateurs, galeries, musées et soirées tropéziennes.',
     },
     {
       name: 'Ramatuelle',
       dist: '17 km',
-      img: imgs.ramatuelle,
-      alt: 'Village perché de Ramatuelle et paysage provençal',
       desc: "Village perché aux ruelles provençales typiques, dominant les vignobles et la presqu'île de Saint-Tropez. Son centre historique, fleuri et préservé, s'anime autour de son marché.",
       note: 'Porte d’entrée de Pampelonne, de ses clubs de plage chics et de domaines viticoles réputés.',
     },
     {
       name: 'La Croix-Valmer',
       dist: '17 km',
-      img: imgs.croixValmer,
-      alt: 'Plage de Gigaro à La Croix-Valmer vue du ciel',
       desc: 'Station familiale et préservée, nichée entre vignobles et pinèdes au sud du Golfe de Saint-Tropez, dans une atmosphère authentique et reposante.',
       note: 'Marché du dimanche matin place des Palmiers et plages de Gigaro aux eaux cristallines.',
     },
     {
       name: 'Rayol-Canadel-sur-Mer',
       dist: '24 km',
-      img: imgs.rayol,
-      alt: 'Jardin méditerranéen du Domaine du Rayol',
       desc: "Niché entre mer et montagne sur la Corniche des Maures, le Rayol-Canadel est l'un des villages les plus secrets et préservés du littoral varois.",
       note: 'Domaine du Rayol, criques discrètes, plages de galets, pins parasols et eau cristalline propice à la plongée.',
     },
@@ -794,7 +678,7 @@ function ExploreSection() {
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20 gap-6">
           <div>
-            <Label num="06" text="Explorer" />
+            <Label num="05" text="Explorer" />
             <Title>
               Aux portes du<br /><em>Golfe de Saint-Tropez</em>
             </Title>
@@ -810,15 +694,6 @@ function ExploreSection() {
               key={d.name}
               className={`reveal reveal-delay-${Math.min(i + 1, 6)} bg-ivory/75 border border-bronze/15`}
             >
-              <div className="img-zoom aspect-[16/10]">
-                <img
-                  src={d.img}
-                  alt={d.alt}
-                  className="w-full h-full object-cover"
-                  style={{ backgroundColor: '#9B8B7A' }}
-                  loading="lazy"
-                />
-              </div>
               <div className="p-6 lg:p-8">
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <h3 className="font-display font-light text-charbon text-[28px] lg:text-[34px] leading-none">{d.name}</h3>
@@ -872,7 +747,7 @@ function StaySection() {
     <section id="sejour" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
-          <Label num="07" text="Votre Séjour" />
+          <Label num="06" text="Votre Séjour" />
           <Title>
             Informations<br /><em>pratiques</em>
           </Title>
@@ -913,7 +788,7 @@ function ServicesSection() {
     <section id="services" className="py-32 lg:py-44 bg-travertin">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
-          <Label num="08" text="Services" />
+          <Label num="07" text="Services" />
           <Title>
             Services<br /><em>premium</em>
           </Title>
@@ -943,40 +818,14 @@ function ServicesSection() {
 // ── Contact ───────────────────────────────────────────────────────────────────
 
 function ContactSection() {
-  const [fields, setFields] = useState({
-    name: '', email: '', phone: '', arrival: '', departure: '', message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-  const [sending, setSending] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setFields(prev => ({ ...prev, [e.target.name]: e.target.value }))
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setSending(true)
-    try {
-      await fetch('/contact-form.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...fields }),
-      })
-    } catch { /* fails gracefully in dev */ }
-    setSending(false)
-    setSubmitted(true)
-  }
-
-  const inputClass =
-    'w-full border-b border-travertin bg-transparent py-3.5 font-body font-light text-charbon text-[15.5px] focus:border-bronze outline-none transition-colors duration-300 placeholder:text-taupe/40'
-
   return (
     <section id="contact" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-28">
+        <div className="grid lg:grid-cols-[0.88fr_1.12fr] gap-16 lg:gap-28 items-start">
           <div className="reveal">
-            <Label num="09" text="Contact" />
+            <Label num="08" text="Contact" />
             <Title>
-              Réservez<br /><em>votre séjour</em>
+              Nous<br /><em>contacter</em>
             </Title>
             <Divider />
 
@@ -1025,64 +874,7 @@ function ContactSection() {
           </div>
 
           <div className="reveal-right">
-            {submitted ? (
-              <div className="h-full flex flex-col justify-center py-16">
-                <div className="w-10 h-px bg-bronze mb-8" />
-                <h3
-                  className="font-display font-light text-charbon mb-5 leading-[1.1]"
-                  style={{ fontSize: 'clamp(36px, 4vw, 50px)' }}
-                >
-                  Merci pour votre<br /><em>message</em>
-                </h3>
-                <p className="font-body font-light text-taupe text-[16px] leading-relaxed">
-                  Nous revenons vers vous dans les plus brefs délais pour confirmer votre séjour.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-7">
-                <input type="hidden" name="form-name" value="contact" />
-
-                <div className="grid grid-cols-2 gap-7">
-                  <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Nom</label>
-                    <input type="text" name="name" value={fields.name} onChange={handleChange} required className={inputClass} placeholder="Votre nom" />
-                  </div>
-                  <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Email</label>
-                    <input type="email" name="email" value={fields.email} onChange={handleChange} required className={inputClass} placeholder="votre@email.com" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Téléphone</label>
-                  <input type="tel" name="phone" value={fields.phone} onChange={handleChange} className={inputClass} placeholder="+33 ..." />
-                </div>
-
-                <div className="grid grid-cols-2 gap-7">
-                  <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Arrivée</label>
-                    <input type="date" name="arrival" value={fields.arrival} onChange={handleChange} className={inputClass} />
-                  </div>
-                  <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Départ</label>
-                    <input type="date" name="departure" value={fields.departure} onChange={handleChange} className={inputClass} />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Message</label>
-                  <textarea name="message" value={fields.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Vos questions, souhaits particuliers..." />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={sending}
-                  className="w-full py-4 bg-bronze text-white font-body text-[10.5px] tracking-[0.22em] uppercase hover:bg-bronze-light transition-colors duration-300 disabled:opacity-50"
-                >
-                  {sending ? 'Envoi en cours...' : 'Envoyer la demande'}
-                </button>
-              </form>
-            )}
+            <WelcomeSection />
           </div>
         </div>
       </div>
@@ -1098,7 +890,8 @@ function Footer() {
     { label: 'Les Intérieurs', href: '#interieurs' },
     { label: 'Les Chambres', href: '#chambres' },
     { label: 'Jardin & Piscine', href: '#jardin' },
-    { label: 'Art de Vivre', href: '#art-de-vivre' },
+    { label: 'Explorer', href: '#explorer' },
+    { label: 'Séjour', href: '#sejour' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -1163,12 +956,10 @@ function VillaPage() {
       <Navigation scrolled={scrolled} />
       <Hero />
       <StatsBar />
-      <WelcomeSection />
       <VillaSection />
       <InteriorsSection />
       <BedroomsSection />
       <GardenSection />
-      <ArtDeVivreSection />
       <ExploreSection />
       <StaySection />
       <ServicesSection />

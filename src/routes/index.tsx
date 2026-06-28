@@ -76,7 +76,7 @@ function Label({ num, text }: { num: string; text: string }) {
 function Title({ children, light }: { children: React.ReactNode; light?: boolean }) {
   return (
     <h2
-      className={`font-display font-light leading-[0.95] ${light ? 'text-white' : 'text-charbon'}`}
+      className={`font-display font-light leading-[0.95] ${light ? 'text-charbon' : 'text-charbon'}`}
       style={{ fontSize: 'clamp(44px, 5.5vw, 72px)' }}
     >
       {children}
@@ -134,7 +134,7 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
           rel="noopener noreferrer"
           className={`hidden lg:inline-block font-body text-[10px] tracking-[0.2em] uppercase px-6 py-3 border transition-all duration-300 ${
             solid
-              ? 'border-charbon text-charbon hover:bg-charbon hover:text-ivory'
+              ? 'border-charbon text-charbon hover:bg-bronze hover:text-white hover:border-bronze'
               : 'border-white/70 text-white hover:bg-white hover:text-charbon'
           }`}
         >
@@ -146,9 +146,9 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-charbon' : 'bg-white'} ${open ? 'rotate-45 translate-y-[6px]' : ''}`} />
-          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-charbon' : 'bg-white'} ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-charbon' : 'bg-white'} ${open ? '-rotate-45 -translate-y-[6px]' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-taupe' : 'bg-white'} ${open ? 'rotate-45 translate-y-[6px]' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-taupe' : 'bg-white'} ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${solid ? 'bg-taupe' : 'bg-white'} ${open ? '-rotate-45 -translate-y-[6px]' : ''}`} />
         </button>
       </div>
 
@@ -187,9 +187,9 @@ function Hero() {
     <section className="relative h-screen min-h-[650px] flex flex-col overflow-hidden">
       <div
         className="hero-img absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${imgs.hero})`, backgroundColor: '#3A3530' }}
+        style={{ backgroundImage: `url(${imgs.hero})`, backgroundColor: '#9B8B7A' }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-charbon/55 via-charbon/25 to-charbon/65" />
+      <div className="absolute inset-0 bg-gradient-to-b from-taupe/55 via-taupe/20 to-taupe/65" />
 
       <div className="relative z-10 flex flex-col h-full max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="flex-1 flex flex-col justify-end pb-20 lg:pb-28">
@@ -213,7 +213,7 @@ function Hero() {
             L'élégance provençale entre vignes et Méditerranée
           </p>
 
-          <p className="ha-3 font-body font-light text-white/60 mt-3 text-sm leading-relaxed max-w-sm">
+          <p className="ha-3 font-body font-light text-white/70 mt-3 text-[15.5px] leading-relaxed max-w-sm">
             Une maison contemporaine au cœur d'un jardin méditerranéen.
           </p>
 
@@ -252,12 +252,12 @@ function StatsBar() {
     'Piscine chauffée', 'Jardin méditerranéen', 'Domaine privé',
   ]
   return (
-    <div className="bg-charbon py-5">
+    <div className="bg-travertin/70 py-5 border-y border-bronze/20">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="flex no-scrollbar overflow-x-auto lg:justify-between">
           {items.map((item, i) => (
             <div key={item} className="flex items-center flex-shrink-0">
-              <span className="font-body text-[10px] tracking-[0.22em] uppercase text-white/55 whitespace-nowrap px-5 lg:px-0">
+              <span className="font-body text-[11px] tracking-[0.22em] uppercase text-taupe whitespace-nowrap px-5 lg:px-0">
                 {item}
               </span>
               {i < items.length - 1 && (
@@ -293,7 +293,7 @@ function WelcomeSection() {
           </div>
 
           <div className="bg-travertin/55 px-7 py-9 sm:px-10 sm:py-11 lg:px-14 lg:py-14 border-l border-bronze/45">
-            <div className="space-y-6 font-body font-light text-taupe leading-[2] text-[15px] lg:text-[16px]">
+            <div className="space-y-6 font-body font-light text-taupe leading-[2] text-[16px] lg:text-[17px]">
               <p>
                 Nous sommes heureux de vous accueillir à la Villa Les Palmiers et vous remercions d'avoir choisi notre maison pour votre séjour.
               </p>
@@ -357,34 +357,35 @@ function VillaSection() {
           <div className="reveal order-1 lg:order-2 lg:pl-4">
             <Label num="01" text="La Villa" />
             <Title>
-              Une architecture<br /><em>contemporaine</em>
+              L'esprit de<br /><em>Villa Les Palmiers</em>
             </Title>
             <Divider />
 
-            <p className="font-body font-light text-taupe leading-[2] text-[15px] mb-5">
-              Villa Les Palmiers est une propriété contemporaine construite en 2019, nichée au sein d'un domaine privé de seulement huit villas. Plain-pied, lumineuse, ouverte sur la nature provençale.
+            <p className="font-display font-light text-charbon leading-tight text-[26px] lg:text-[32px] mb-8">
+              Villa Les Palmiers est avant tout une maison de famille.
             </p>
-            <p className="font-body font-light text-taupe leading-[2] text-[15px] mb-10">
-              De très grandes baies vitrées inondent chaque espace de lumière naturelle. La terrasse en travertin prolonge harmonieusement la vie intérieure vers le jardin méditerranéen. Le calme y est absolu, à quelques minutes de Saint-Tropez.
-            </p>
-
-            <div className="grid grid-cols-2 gap-x-8 gap-y-7 mb-10 pt-6 border-t border-travertin">
-              {[
-                { l: 'Architecture', v: 'Plain-pied' },
-                { l: 'Année', v: '2019' },
-                { l: 'Orientation', v: 'Plein Sud' },
-                { l: 'Domaine', v: '8 villas privées' },
-              ].map(({ l, v }) => (
-                <div key={l}>
-                  <p className="font-body text-[9.5px] tracking-[0.2em] uppercase text-bronze mb-1">{l}</p>
-                  <p className="font-display text-charbon text-xl">{v}</p>
-                </div>
-              ))}
+            <div className="space-y-6 font-body font-light text-taupe leading-[2.05] text-[16.5px] lg:text-[17px] mb-10">
+              <p>
+                Construite en 2019, elle a été imaginée comme un lieu où l'architecture contemporaine s'efface au profit de la lumière, du paysage et de l'art de vivre méditerranéen. Chaque espace a été pensé pour créer une continuité naturelle entre l'intérieur, le jardin et la piscine, offrant une sensation permanente d'ouverture et de sérénité.
+              </p>
+              <p>
+                Nichée à Grimaud, à quelques minutes de Saint-Tropez, la propriété bénéficie d'un environnement privilégié, entre les vignobles du Golfe et la Méditerranée.
+              </p>
+              <p>
+                Son jardin puise sa richesse dans une ressource naturelle rare : la nappe phréatique alimentée par le cours d'eau de l'Avelan, qui longe discrètement la propriété. Cette présence de l'eau permet au paysage de conserver toute sa fraîcheur et son caractère luxuriant au fil des saisons.
+              </p>
+              <p>
+                Plus qu'un lieu de séjour, Villa Les Palmiers est une invitation à ralentir, à partager des moments précieux et à profiter pleinement de la douceur de vivre provençale.
+              </p>
             </div>
+
+            <p className="font-display font-light italic text-charbon text-[28px] lg:text-[36px] leading-tight mb-10">
+              L'élégance provençale entre vignes et Méditerranée.
+            </p>
 
             <a
               href="#contact"
-              className="inline-block font-body text-[10px] tracking-[0.22em] uppercase px-8 py-4 border border-charbon text-charbon hover:bg-charbon hover:text-ivory transition-all duration-300"
+              className="inline-block font-body text-[10px] tracking-[0.22em] uppercase px-8 py-4 border border-charbon text-charbon hover:bg-bronze hover:text-white hover:border-bronze transition-all duration-300"
             >
               Demander une disponibilité
             </a>
@@ -408,7 +409,7 @@ function InteriorsSection() {
               Design contemporain,<br /><em>lumière naturelle</em>
             </Title>
           </div>
-          <p className="font-body font-light text-taupe text-[14px] leading-relaxed lg:max-w-[260px]">
+          <p className="font-body font-light text-taupe text-[15.5px] leading-relaxed lg:max-w-[280px]">
             Cuisine ouverte, salon, salle à manger — chaque espace est pensé pour la lumière et le partage.
           </p>
         </div>
@@ -492,7 +493,7 @@ function BedroomsSection() {
                 {s.feats.map(f => (
                   <li key={f} className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-bronze flex-shrink-0" />
-                    <span className="font-body font-light text-taupe text-[13.5px]">{f}</span>
+                    <span className="font-body font-light text-taupe text-[15px]">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -508,13 +509,13 @@ function BedroomsSection() {
 
 function GardenSection() {
   return (
-    <section id="jardin" className="bg-charbon">
+    <section id="jardin" className="bg-ivory">
       <div className="relative h-[72vh] min-h-[480px] flex items-end overflow-hidden">
         <div
           className="hero-img absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${imgs.piscine})`, backgroundColor: '#2A2520' }}
+          style={{ backgroundImage: `url(${imgs.piscine})`, backgroundColor: '#9B8B7A' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charbon via-charbon/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ivory via-taupe/10 to-transparent" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-7 lg:px-16 pb-14 lg:pb-20 w-full">
           <div className="reveal">
             <Label num="04" text="Jardin & Piscine" />
@@ -528,14 +529,14 @@ function GardenSection() {
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16 pt-20 pb-16">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-28 items-center mb-16">
           <div className="reveal">
-            <p className="font-body font-light text-white/60 leading-[2.1] text-[15px] mb-9">
+            <p className="font-body font-light text-taupe leading-[2.1] text-[16.5px] lg:text-[17px] mb-9">
               Le jardin est rendu particulièrement luxuriant grâce à la nappe phréatique alimentée par l'Avelan qui longe la propriété. Une végétation méditerranéenne exubérante, soigneusement entretenue, entoure la piscine à débordement.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-6">
               {['Washingtonia à 3 troncs', 'Oliviers', 'Grenadier sculptural', 'Cycas', 'Lauriers roses', 'Pelouse & Travertin'].map(p => (
                 <div key={p} className="flex items-center gap-2.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-olive flex-shrink-0" />
-                  <span className="font-body text-[10.5px] tracking-[0.08em] text-white/50">{p}</span>
+                  <span className="font-body text-[12px] tracking-[0.08em] text-taupe">{p}</span>
                 </div>
               ))}
             </div>
@@ -544,20 +545,20 @@ function GardenSection() {
           <div className="reveal-right">
             <div className="grid grid-cols-2 gap-3">
               <div className="img-zoom aspect-square">
-                <img src={imgs.jardin} alt="Jardin méditerranéen" className="w-full h-full object-cover" style={{ backgroundColor: '#3A3530' }} loading="lazy" />
+                <img src={imgs.jardin} alt="Jardin méditerranéen" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
               </div>
               <div className="img-zoom aspect-square mt-10">
-                <img src={imgs.terrasse} alt="Terrasse travertin" className="w-full h-full object-cover" style={{ backgroundColor: '#3A3530' }} loading="lazy" />
+                <img src={imgs.terrasse} alt="Terrasse travertin" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="reveal border-t border-white/10 pt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="reveal border-t border-travertin pt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
           {['Piscine à débordement', 'Terrain de pétanque', 'Terrasses en travertin', 'Transats & loungers'].map(item => (
             <div key={item}>
               <div className="w-5 h-px bg-bronze mb-3" />
-              <p className="font-body text-[10px] tracking-[0.18em] uppercase text-white/45">{item}</p>
+              <p className="font-body text-[11px] tracking-[0.18em] uppercase text-taupe">{item}</p>
             </div>
           ))}
         </div>
@@ -566,9 +567,9 @@ function GardenSection() {
       <div className="pb-20">
         <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
           <div className="reveal-scale img-zoom aspect-[21/9] min-h-[240px]">
-            <img src={imgs.nuit} alt="Piscine de nuit" className="w-full h-full object-cover" style={{ backgroundColor: '#1A1510' }} loading="lazy" />
+            <img src={imgs.nuit} alt="Piscine de nuit" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
           </div>
-          <p className="font-body text-[9.5px] tracking-[0.22em] uppercase text-white/30 mt-4">
+          <p className="font-body text-[10.5px] tracking-[0.22em] uppercase text-taupe mt-4">
             Piscine chauffée · Nuit d'été
           </p>
         </div>
@@ -659,7 +660,7 @@ function ExploreSection() {
               Aux portes du<br /><em>Golfe de Saint-Tropez</em>
             </Title>
           </div>
-          <p className="font-body font-light text-taupe text-[14px] leading-relaxed lg:max-w-[240px]">
+          <p className="font-body font-light text-taupe text-[15.5px] leading-relaxed lg:max-w-[260px]">
             La villa est idéalement placée entre mer, vignobles et villages perchés.
           </p>
         </div>
@@ -733,7 +734,7 @@ function StaySection() {
                 {cat.items.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <div className="w-4 h-px bg-bronze mt-[9px] flex-shrink-0" />
-                    <span className="font-body font-light text-taupe text-[13.5px] leading-relaxed">{item}</span>
+                    <span className="font-body font-light text-taupe text-[15px] leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -757,11 +758,11 @@ function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="py-32 lg:py-44 bg-charbon">
+    <section id="services" className="py-32 lg:py-44 bg-travertin">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
           <Label num="08" text="Services" />
-          <Title light>
+          <Title>
             Services<br /><em>premium</em>
           </Title>
         </div>
@@ -770,14 +771,14 @@ function ServicesSection() {
           {services.map((s, i) => (
             <div
               key={s.name}
-              className={`reveal reveal-delay-${Math.min(i + 1, 5)} flex flex-col md:flex-row md:items-center gap-4 md:gap-16 py-8 border-b border-white/10`}
+              className={`reveal reveal-delay-${Math.min(i + 1, 5)} flex flex-col md:flex-row md:items-center gap-4 md:gap-16 py-8 border-b border-bronze/25`}
             >
-              <span className="hidden md:block font-body text-[10px] tracking-[0.2em] text-bronze/50 flex-shrink-0 w-8">
+              <span className="hidden md:block font-body text-[11px] tracking-[0.2em] text-bronze flex-shrink-0 w-8">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
-                <h3 className="font-display font-light text-white text-[22px] lg:text-[26px] mb-1">{s.name}</h3>
-                <p className="font-body font-light text-white/45 text-[13.5px]">{s.desc}</p>
+                <h3 className="font-display font-light text-charbon text-[24px] lg:text-[28px] mb-1">{s.name}</h3>
+                <p className="font-body font-light text-taupe text-[15px]">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -814,7 +815,7 @@ function ContactSection() {
   }
 
   const inputClass =
-    'w-full border-b border-travertin bg-transparent py-3.5 font-body font-light text-charbon text-[14px] focus:border-bronze outline-none transition-colors duration-300 placeholder:text-taupe/40'
+    'w-full border-b border-travertin bg-transparent py-3.5 font-body font-light text-charbon text-[15.5px] focus:border-bronze outline-none transition-colors duration-300 placeholder:text-taupe/40'
 
   return (
     <section id="contact" className="py-32 lg:py-44 bg-ivory">
@@ -827,7 +828,7 @@ function ContactSection() {
             </Title>
             <Divider />
 
-            <p className="font-body font-light text-taupe leading-[2.1] text-[15px] mb-10">
+            <p className="font-body font-light text-taupe leading-[2.1] text-[16.5px] mb-10">
               Domaine des Lauriers<br />
               Grimaud · Var · France
             </p>
@@ -839,7 +840,7 @@ function ContactSection() {
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.97-.97a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[14px]">+33 (0)6 00 00 00 00</span>
+                <span className="font-body font-light text-taupe text-[15px]">+33 (0)6 00 00 00 00</span>
               </a>
 
               <a href="https://wa.me/33600000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
@@ -848,7 +849,7 @@ function ContactSection() {
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[14px]">WhatsApp</span>
+                <span className="font-body font-light text-taupe text-[15px]">WhatsApp</span>
               </a>
 
               <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
@@ -857,7 +858,7 @@ function ContactSection() {
                     <path d="M16 1c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm0 4c4.418 0 8.418 2.238 10.75 5.875-.563 2.25-2.063 5.125-4.875 7.75C19.312 20.5 17.5 22 16 22.875 14.5 22 12.688 20.5 10.125 18.625 7.313 16 5.813 13.125 5.25 10.875 7.582 7.238 11.582 5 16 5zm0 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[14px]">Réserver sur Airbnb</span>
+                <span className="font-body font-light text-taupe text-[15px]">Réserver sur Airbnb</span>
               </a>
             </div>
 
@@ -881,7 +882,7 @@ function ContactSection() {
                 >
                   Merci pour votre<br /><em>message</em>
                 </h3>
-                <p className="font-body font-light text-taupe text-[15px] leading-relaxed">
+                <p className="font-body font-light text-taupe text-[16px] leading-relaxed">
                   Nous revenons vers vous dans les plus brefs délais pour confirmer votre séjour.
                 </p>
               </div>
@@ -924,7 +925,7 @@ function ContactSection() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-4 bg-charbon text-ivory font-body text-[10px] tracking-[0.22em] uppercase hover:bg-bronze transition-colors duration-300 disabled:opacity-50"
+                  className="w-full py-4 bg-bronze text-white font-body text-[10.5px] tracking-[0.22em] uppercase hover:bg-bronze-light transition-colors duration-300 disabled:opacity-50"
                 >
                   {sending ? 'Envoi en cours...' : 'Envoyer la demande'}
                 </button>
@@ -950,11 +951,11 @@ function Footer() {
   ]
 
   return (
-    <footer className="bg-charbon">
+    <footer className="bg-travertin">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16 py-16 lg:py-20">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 pb-12 border-b border-white/10">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 pb-12 border-b border-bronze/25">
           <div>
-            <p className="font-display text-white text-[22px] tracking-wide mb-1.5">Villa Les Palmiers</p>
+            <p className="font-display text-charbon text-[24px] tracking-wide mb-1.5">Villa Les Palmiers</p>
             <p className="font-body text-[9.5px] tracking-[0.25em] uppercase text-bronze">
               Grimaud · Golfe de Saint-Tropez
             </p>
@@ -965,7 +966,7 @@ function Footer() {
               <a
                 key={l.href}
                 href={l.href}
-                className="font-body text-[9.5px] tracking-[0.18em] uppercase text-white/40 hover:text-white/70 transition-colors duration-300"
+                className="font-body text-[10.5px] tracking-[0.18em] uppercase text-taupe hover:text-charbon transition-colors duration-300"
               >
                 {l.label}
               </a>
@@ -974,24 +975,24 @@ function Footer() {
 
           <div className="flex items-center gap-5">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-              className="font-body text-[9.5px] tracking-[0.18em] uppercase text-white/40 hover:text-bronze transition-colors duration-300">
+              className="font-body text-[10.5px] tracking-[0.18em] uppercase text-taupe hover:text-bronze transition-colors duration-300">
               Instagram
             </a>
-            <span className="text-white/20">·</span>
+            <span className="text-bronze/50">·</span>
             <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer"
-              className="font-body text-[9.5px] tracking-[0.18em] uppercase text-white/40 hover:text-bronze transition-colors duration-300">
+              className="font-body text-[10.5px] tracking-[0.18em] uppercase text-taupe hover:text-bronze transition-colors duration-300">
               Airbnb
             </a>
           </div>
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="font-body text-[9.5px] tracking-[0.1em] text-white/25">
+          <p className="font-body text-[10.5px] tracking-[0.1em] text-taupe">
             © 2024 Villa Les Palmiers. Tous droits réservés.
           </p>
           <div className="flex gap-7">
-            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Mentions légales</a>
-            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</a>
+            <a href="#" className="font-body text-[10.5px] tracking-[0.1em] text-taupe hover:text-charbon transition-colors">Mentions légales</a>
+            <a href="#" className="font-body text-[10.5px] tracking-[0.1em] text-taupe hover:text-charbon transition-colors">Politique de confidentialité</a>
           </div>
         </div>
       </div>

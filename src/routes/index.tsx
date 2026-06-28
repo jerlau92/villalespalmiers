@@ -1,4 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router'
+import {
+  Archive,
+  Bath,
+  BedDouble,
+  Bluetooth,
+  Droplets,
+  Shirt,
+  ShowerHead,
+  Sparkles,
+  Thermometer,
+  TowelRack,
+  Wind,
+  type LucideIcon,
+} from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 // ── Image constants ──────────────────────────────────────────────────────────
@@ -13,9 +27,9 @@ const imgs = {
   cuisine:  U + '1556909114-f6e7ad7d3136'   + Q(900),
   salle:    U + '1617806118233-18e1de247200' + Q(900),
   detail:   U + '1586023492125-27b2c045efd7' + Q(700),
-  chambre1: U + '1631049307264-da0ec9d70304' + Q(900),
-  chambre2: U + '1598928506311-c55ded91a20c' + Q(900),
-  chambre3: U + '1505693416388-ac5ce068fe85' + Q(900),
+  chambre1: '/images/chambre-villa-les-palmiers-1.jpeg',
+  chambre2: '/images/chambre-villa-les-palmiers-2.jpeg',
+  chambre3: '/images/chambre-villa-les-palmiers-3.jpeg',
   piscine:  U + '1566073771259-a9a8fe8671a7' + Q(1920),
   jardin:   U + '1490750967868-88df5691cc33' + Q(800),
   terrasse: U + '1533044307260-24af8186fcb0' + Q(800),
@@ -443,62 +457,121 @@ function InteriorsSection() {
 // ── Les Chambres ─────────────────────────────────────────────────────────────
 
 function BedroomsSection() {
+  const essentials: { icon: LucideIcon; label: string }[] = [
+    { icon: BedDouble, label: 'Lit Queen Size' },
+    { icon: Bath, label: 'Salle de bains privative' },
+    { icon: ShowerHead, label: "Douche à l'italienne" },
+    { icon: TowelRack, label: 'Sèche-serviettes chauffant' },
+  ]
+
+  const comforts: { icon: LucideIcon; label: string }[] = [
+    { icon: Sparkles, label: 'Sèche-cheveux Dyson' },
+    { icon: Shirt, label: 'Peignoirs à disposition' },
+    { icon: Bluetooth, label: 'Système audio Bluetooth intégré' },
+    { icon: Wind, label: 'Climatisation' },
+    { icon: Archive, label: 'Rangements et penderie' },
+  ]
+
+  const included: { icon: LucideIcon; label: string }[] = [
+    { icon: Thermometer, label: 'Linge de lit en coton haut de gamme fourni' },
+    { icon: Droplets, label: 'Serviettes de bain et de piscine fournies' },
+  ]
+
   const suites = [
     {
       num: '01',
-      name: 'Suite Principale',
       img: imgs.chambre1,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Vue sur le jardin'],
+      alt: 'Chambre avec lit Queen Size à la Villa Les Palmiers',
     },
     {
       num: '02',
-      name: 'Suite Palmiers',
       img: imgs.chambre2,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Télévision'],
+      alt: 'Chambre lumineuse avec salle de bains privative à la Villa Les Palmiers',
     },
     {
       num: '03',
-      name: 'Suite Méditerranée',
       img: imgs.chambre3,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Vue sur la piscine'],
+      alt: 'Chambre élégante avec rangements à la Villa Les Palmiers',
     },
   ]
+
+  const equipment = [...essentials, ...comforts]
 
   return (
     <section id="chambres" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
-        <div className="reveal mb-14 lg:mb-20">
-          <Label num="03" text="Les Chambres" />
-          <Title>
-            Trois suites,<br /><em>tout confort</em>
-          </Title>
+        <div className="reveal mb-14 lg:mb-20 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 lg:gap-20 items-end">
+          <div>
+            <Label num="03" text="Les Chambres" />
+            <Title>
+              Trois espaces nuit,<br /><em>pensés comme des cocons</em>
+            </Title>
+          </div>
+          <p className="font-body font-light text-taupe leading-[2] text-[16px] lg:text-[17px] max-w-xl">
+            Chaque chambre offre le même niveau de confort, avec salle de bains privative,
+            matières choisies et équipements discrets pour un séjour simple, élégant et reposant.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-7">
           {suites.map((s, i) => (
-            <div key={s.num} className={`reveal reveal-delay-${i + 1}`}>
-              <div className="img-zoom aspect-[3/4] mb-6">
+            <article
+              key={s.num}
+              className={`reveal reveal-delay-${i + 1} group bg-white/48 border border-bronze/20 shadow-[0_22px_70px_rgba(42,37,32,0.07)]`}
+            >
+              <div className="img-zoom aspect-[4/5]">
                 <img
                   src={s.img}
-                  alt={s.name}
+                  alt={s.alt}
                   className="w-full h-full object-cover"
                   style={{ backgroundColor: '#E0D5C8' }}
                   loading="lazy"
                 />
               </div>
-              <p className="font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2">Suite {s.num}</p>
-              <h3 className="font-display font-light text-charbon text-2xl mb-4">{s.name}</h3>
-              <div className="w-6 h-px bg-travertin mb-4" />
-              <ul className="space-y-2.5">
-                {s.feats.map(f => (
-                  <li key={f} className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-bronze flex-shrink-0" />
-                    <span className="font-body font-light text-taupe text-[15px]">{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="p-6 lg:p-7">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="font-body text-[10px] tracking-[0.26em] uppercase text-bronze">
+                    Espace nuit
+                  </span>
+                  <span className="font-display text-[28px] leading-none text-charbon/35">{s.num}</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2.5">
+                  {equipment.map(({ icon: Icon, label }) => (
+                    <div
+                      key={`${s.num}-${label}`}
+                      className="min-h-[92px] border border-travertin/85 bg-ivory/70 px-3.5 py-3.5 flex flex-col justify-between"
+                    >
+                      <Icon className="w-4.5 h-4.5 text-bronze" strokeWidth={1.55} aria-hidden="true" />
+                      <span className="font-body font-light text-[13.5px] leading-snug text-charbon">
+                        {label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
           ))}
+        </div>
+
+        <div className="reveal reveal-delay-4 mt-8 lg:mt-10 border border-bronze/25 bg-travertin/38 px-6 py-6 lg:px-9 lg:py-7">
+          <div className="grid md:grid-cols-[0.45fr_1fr] gap-5 md:gap-8 items-center">
+            <p className="font-body text-[10px] tracking-[0.26em] uppercase text-bronze">
+              Inclus dans le séjour
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {included.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-4">
+                  <span className="w-11 h-11 border border-bronze/35 bg-ivory/70 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-bronze" strokeWidth={1.55} aria-hidden="true" />
+                  </span>
+                  <span className="font-body font-light text-[15.5px] leading-relaxed text-charbon">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

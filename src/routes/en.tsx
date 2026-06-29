@@ -91,11 +91,11 @@ function Divider() {
 // ── Navigation ───────────────────────────────────────────────────────────────
 
 const navLinks = [
-  { href: '#villa', label: 'La Villa' },
-  { href: '#interieurs', label: 'Les Intérieurs' },
-  { href: '#chambres', label: 'Les Chambres' },
-  { href: '#jardin', label: 'Jardin & Piscine' },
-  { href: '#art-de-vivre', label: 'Art de Vivre' },
+  { href: '#villa', label: 'The Villa' },
+  { href: '#interieurs', label: 'Interiors' },
+  { href: '#chambres', label: 'Bedrooms' },
+  { href: '#jardin', label: 'Garden & Pool' },
+  { href: '#art-de-vivre', label: 'Lifestyle' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -137,14 +137,14 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
               : 'border-white/70 text-white hover:bg-white hover:text-charbon'
           }`}
         >
-          Réserver
+          Book
         </a>
 
         <a
-          href="/en"
+          href="/"
           className={`hidden lg:inline-block font-body text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${solid ? 'text-taupe hover:text-charbon' : 'text-white/70 hover:text-white'}`}
         >
-          EN
+          FR
         </a>
 
         <button
@@ -178,13 +178,13 @@ function Navigation({ scrolled }: { scrolled: boolean }) {
             rel="noopener noreferrer"
             className="mt-6 block text-center font-body text-[10px] tracking-[0.2em] uppercase py-4 border border-charbon text-charbon"
           >
-            Réserver
+            Book
           </a>
           <a
-            href="/en"
+            href="/"
             className="mt-4 block text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 text-charbon"
           >
-            EN
+            FR
           </a>
         </div>
       </div>
@@ -222,11 +222,11 @@ function Hero() {
             className="ha-3 font-display font-light italic text-white/85"
             style={{ fontSize: 'clamp(17px, 2.2vw, 26px)' }}
           >
-            L'élégance provençale entre vignes et Méditerranée
+            Provençal elegance between vineyards and the Mediterranean
           </p>
 
           <p className="ha-3 font-body font-light text-white/60 mt-3 text-sm leading-relaxed max-w-sm">
-            Une maison contemporaine au cœur d'un jardin méditerranéen.
+            A contemporary home in the heart of a Mediterranean garden.
           </p>
 
           <div className="ha-4 flex flex-wrap gap-3 mt-9">
@@ -234,7 +234,7 @@ function Hero() {
               href="#villa"
               className="font-body text-[10px] tracking-[0.22em] uppercase px-7 py-4 border border-white/60 text-white hover:bg-white hover:text-charbon transition-all duration-300"
             >
-              Découvrir
+              Explore
             </a>
             <a
               href="https://airbnb.com"
@@ -242,13 +242,13 @@ function Hero() {
               rel="noopener noreferrer"
               className="font-body text-[10px] tracking-[0.22em] uppercase px-7 py-4 bg-bronze text-white border border-bronze hover:bg-bronze-light transition-all duration-300"
             >
-              Réserver
+              Book
             </a>
           </div>
         </div>
 
         <div className="ha-4 pb-8 flex flex-col items-start gap-2">
-          <span className="font-body text-[9px] tracking-[0.35em] uppercase text-white/40">Défiler</span>
+          <span className="font-body text-[9px] tracking-[0.35em] uppercase text-white/40">Scroll</span>
           <div className="scroll-line w-px h-11 bg-white/35 origin-top" />
         </div>
       </div>
@@ -260,8 +260,8 @@ function Hero() {
 
 function StatsBar() {
   const items = [
-    '6 Voyageurs', '3 Chambres', '3 Salles de bains',
-    'Piscine chauffée', 'Jardin méditerranéen', 'Domaine privé',
+    '6 Guests', '3 Bedrooms', '3 Bathrooms',
+    'Heated pool', 'Mediterranean garden', 'Private estate',
   ]
   return (
     <div className="bg-charbon py-5">
@@ -283,7 +283,7 @@ function StatsBar() {
   )
 }
 
-// ── La Villa ─────────────────────────────────────────────────────────────────
+// ── The Villa ─────────────────────────────────────────────────────────────────
 
 function VillaSection() {
   return (
@@ -294,7 +294,7 @@ function VillaSection() {
             <div className="img-zoom aspect-[3/4]">
               <img
                 src={imgs.villa}
-                alt="Villa Les Palmiers — Vue extérieure"
+                alt="Villa Les Palmiers — Exterior view"
                 className="w-full h-full object-cover"
                 style={{ backgroundColor: '#D4BC9E' }}
                 loading="lazy"
@@ -303,25 +303,25 @@ function VillaSection() {
           </div>
 
           <div className="reveal order-1 lg:order-2 lg:pl-4">
-            <Label num="01" text="La Villa" />
+            <Label num="01" text="The Villa" />
             <Title>
-              Une architecture<br /><em>contemporaine</em>
+              Contemporary<br /><em>architecture</em>
             </Title>
             <Divider />
 
             <p className="font-body font-light text-taupe leading-[2] text-[15px] mb-5">
-              Villa Les Palmiers est une propriété contemporaine construite en 2019, nichée au sein d'un domaine privé de seulement huit villas. Plain-pied, lumineuse, ouverte sur la nature provençale.
+              Villa Les Palmiers is a contemporary property built in 2019, set within a private estate of only eight villas. Single-storey, bright, and open to the Provençal landscape.
             </p>
             <p className="font-body font-light text-taupe leading-[2] text-[15px] mb-10">
-              De très grandes baies vitrées inondent chaque espace de lumière naturelle. La terrasse en travertin prolonge harmonieusement la vie intérieure vers le jardin méditerranéen. Le calme y est absolu, à quelques minutes de Saint-Tropez.
+              Expansive glass doors fill every space with natural light. The travertine terrace carries indoor living seamlessly into the Mediterranean garden. The setting is exceptionally peaceful, just minutes from Saint-Tropez.
             </p>
 
             <div className="grid grid-cols-2 gap-x-8 gap-y-7 mb-10 pt-6 border-t border-travertin">
               {[
-                { l: 'Architecture', v: 'Plain-pied' },
-                { l: 'Année', v: '2019' },
-                { l: 'Orientation', v: 'Plein Sud' },
-                { l: 'Domaine', v: '8 villas privées' },
+                { l: 'Architecture', v: 'Single-storey' },
+                { l: 'Year', v: '2019' },
+                { l: 'Orientation', v: 'Due south' },
+                { l: 'Estate', v: '8 private villas' },
               ].map(({ l, v }) => (
                 <div key={l}>
                   <p className="font-body text-[9.5px] tracking-[0.2em] uppercase text-bronze mb-1">{l}</p>
@@ -334,7 +334,7 @@ function VillaSection() {
               href="#contact"
               className="inline-block font-body text-[10px] tracking-[0.22em] uppercase px-8 py-4 border border-charbon text-charbon hover:bg-charbon hover:text-ivory transition-all duration-300"
             >
-              Demander une disponibilité
+              Request availability
             </a>
           </div>
         </div>
@@ -343,7 +343,7 @@ function VillaSection() {
   )
 }
 
-// ── Les Intérieurs ───────────────────────────────────────────────────────────
+// ── Interiors ───────────────────────────────────────────────────────────
 
 function InteriorsSection() {
   return (
@@ -351,35 +351,35 @@ function InteriorsSection() {
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20 gap-6">
           <div>
-            <Label num="02" text="Les Intérieurs" />
+            <Label num="02" text="Interiors" />
             <Title>
-              Design contemporain,<br /><em>lumière naturelle</em>
+              Contemporary design,<br /><em>natural light</em>
             </Title>
           </div>
           <p className="font-body font-light text-taupe text-[14px] leading-relaxed lg:max-w-[260px]">
-            Cuisine ouverte, salon, salle à manger — chaque espace est pensé pour la lumière et le partage.
+            Open kitchen, living room, dining area — every space is designed for light and easy gathering.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           <div className="reveal-scale lg:col-span-2 img-zoom aspect-[16/10]">
-            <img src={imgs.salon} alt="Salon" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
+            <img src={imgs.salon} alt="Living room" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
           </div>
           <div className="reveal-scale reveal-delay-1 img-zoom aspect-[3/4]">
-            <img src={imgs.cuisine} alt="Cuisine" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
+            <img src={imgs.cuisine} alt="Kitchen" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
           </div>
           <div className="reveal-scale reveal-delay-2 img-zoom aspect-[4/3]">
-            <img src={imgs.salle} alt="Salle à manger" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
+            <img src={imgs.salle} alt="Dining room" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
           </div>
           <div className="reveal-scale reveal-delay-3 img-zoom aspect-[4/3]">
-            <img src={imgs.detail} alt="Détail intérieur" className="w-full h-full object-cover" style={{ backgroundColor: '#B8A894' }} loading="lazy" />
+            <img src={imgs.detail} alt="Interior detail" className="w-full h-full object-cover" style={{ backgroundColor: '#B8A894' }} loading="lazy" />
           </div>
         </div>
 
         <div className="mt-8 flex items-center gap-4">
           <div className="w-7 h-px bg-bronze" />
           <p className="font-body text-[9.5px] tracking-[0.22em] uppercase text-taupe">
-            Salon · Cuisine ouverte · Salle à manger · Baies vitrées
+            Living room · Kitchen ouverte · Dining room · Glass doors
           </p>
         </div>
       </div>
@@ -387,27 +387,27 @@ function InteriorsSection() {
   )
 }
 
-// ── Les Chambres ─────────────────────────────────────────────────────────────
+// ── Bedrooms ─────────────────────────────────────────────────────────────
 
 function BedroomsSection() {
   const suites = [
     {
       num: '01',
-      name: 'Suite Principale',
+      name: 'Principal Suite',
       img: imgs.chambre1,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Vue sur le jardin'],
+      feats: ['Queen-size bed', 'Walk-in closet', 'Private bathroom', 'Garden view'],
     },
     {
       num: '02',
-      name: 'Suite Palmiers',
+      name: 'Palm Suite',
       img: imgs.chambre2,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Télévision'],
+      feats: ['Queen-size bed', 'Walk-in closet', 'Private bathroom', 'Television'],
     },
     {
       num: '03',
-      name: 'Suite Méditerranée',
+      name: 'Mediterranean Suite',
       img: imgs.chambre3,
-      feats: ['Lit Queen Size', 'Dressing', 'Salle de bains privative', 'Vue sur la piscine'],
+      feats: ['Queen-size bed', 'Walk-in closet', 'Private bathroom', 'Pool view'],
     },
   ]
 
@@ -415,9 +415,9 @@ function BedroomsSection() {
     <section id="chambres" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
-          <Label num="03" text="Les Chambres" />
+          <Label num="03" text="Bedrooms" />
           <Title>
-            Trois suites,<br /><em>tout confort</em>
+            Three suites,<br /><em>complete comfort</em>
           </Title>
         </div>
 
@@ -452,7 +452,7 @@ function BedroomsSection() {
   )
 }
 
-// ── Jardin & Piscine ─────────────────────────────────────────────────────────
+// ── Garden & Pool ─────────────────────────────────────────────────────────
 
 function GardenSection() {
   return (
@@ -465,9 +465,9 @@ function GardenSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-charbon via-charbon/15 to-transparent" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-7 lg:px-16 pb-14 lg:pb-20 w-full">
           <div className="reveal">
-            <Label num="04" text="Jardin & Piscine" />
+            <Label num="04" text="Garden & Pool" />
             <Title light>
-              Le cœur de<br /><em>la propriété</em>
+              The heart of<br /><em>the property</em>
             </Title>
           </div>
         </div>
@@ -477,10 +477,10 @@ function GardenSection() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-28 items-center mb-16">
           <div className="reveal">
             <p className="font-body font-light text-white/60 leading-[2.1] text-[15px] mb-9">
-              Le jardin est rendu particulièrement luxuriant grâce à la nappe phréatique alimentée par l'Avelan qui longe la propriété. Une végétation méditerranéenne exubérante, soigneusement entretenue, entoure la piscine à débordement.
+              The garden is especially lush thanks to the water table fed by the Avelan along the property. Carefully maintained Mediterranean planting surrounds the infinity pool.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-6">
-              {['Washingtonia à 3 troncs', 'Oliviers', 'Grenadier sculptural', 'Cycas', 'Lauriers roses', 'Pelouse & Travertin'].map(p => (
+              {['Three-trunk Washingtonia', 'Olive trees', 'Sculptural pomegranate', 'Cycas', 'Oleanders', 'Lawn & travertine'].map(p => (
                 <div key={p} className="flex items-center gap-2.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-olive flex-shrink-0" />
                   <span className="font-body text-[10.5px] tracking-[0.08em] text-white/50">{p}</span>
@@ -492,7 +492,7 @@ function GardenSection() {
           <div className="reveal-right">
             <div className="grid grid-cols-2 gap-3">
               <div className="img-zoom aspect-square">
-                <img src={imgs.jardin} alt="Jardin méditerranéen" className="w-full h-full object-cover" style={{ backgroundColor: '#3A3530' }} loading="lazy" />
+                <img src={imgs.jardin} alt="Mediterranean garden" className="w-full h-full object-cover" style={{ backgroundColor: '#3A3530' }} loading="lazy" />
               </div>
               <div className="img-zoom aspect-square mt-10">
                 <img src={imgs.terrasse} alt="Terrasse travertin" className="w-full h-full object-cover" style={{ backgroundColor: '#3A3530' }} loading="lazy" />
@@ -502,7 +502,7 @@ function GardenSection() {
         </div>
 
         <div className="reveal border-t border-white/10 pt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {['Piscine à débordement', 'Terrain de pétanque', 'Terrasses en travertin', 'Transats & loungers'].map(item => (
+          {['Infinity pool', 'Petanque court', 'Travertine terraces', 'Sunbeds & loungers'].map(item => (
             <div key={item}>
               <div className="w-5 h-px bg-bronze mb-3" />
               <p className="font-body text-[10px] tracking-[0.18em] uppercase text-white/45">{item}</p>
@@ -514,10 +514,10 @@ function GardenSection() {
       <div className="pb-20">
         <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
           <div className="reveal-scale img-zoom aspect-[21/9] min-h-[240px]">
-            <img src={imgs.nuit} alt="Piscine de nuit" className="w-full h-full object-cover" style={{ backgroundColor: '#1A1510' }} loading="lazy" />
+            <img src={imgs.nuit} alt="Pool by night" className="w-full h-full object-cover" style={{ backgroundColor: '#1A1510' }} loading="lazy" />
           </div>
           <p className="font-body text-[9.5px] tracking-[0.22em] uppercase text-white/30 mt-4">
-            Piscine chauffée · Nuit d'été
+            Heated pool · Summer night
           </p>
         </div>
       </div>
@@ -525,52 +525,52 @@ function GardenSection() {
   )
 }
 
-// ── Art de Vivre ─────────────────────────────────────────────────────────────
+// ── Lifestyle ─────────────────────────────────────────────────────────────
 
 function ArtDeVivreSection() {
   return (
     <section id="art-de-vivre" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
-          <Label num="05" text="Art de Vivre" />
+          <Label num="05" text="Lifestyle" />
           <Title>
-            Les instants<br /><em>provençaux</em>
+            Provençal<br /><em>moments</em>
           </Title>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="reveal-left lg:row-span-2 img-zoom aspect-[3/5] md:aspect-auto">
-            <img src={imgs.rose} alt="Rosé de Provence" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
+            <img src={imgs.rose} alt="Provence rosé" className="w-full h-full object-cover" style={{ backgroundColor: '#D4BC9E' }} loading="lazy" />
           </div>
           <div className="reveal reveal-delay-1 img-zoom aspect-[4/3]">
-            <img src={imgs.petitdej} alt="Petit-déjeuner au soleil" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
+            <img src={imgs.petitdej} alt="Breakfast in the sun" className="w-full h-full object-cover" style={{ backgroundColor: '#C4A882' }} loading="lazy" />
           </div>
           <div className="reveal reveal-delay-2 img-zoom aspect-[4/3]">
-            <img src={imgs.dejeuner} alt="Déjeuner en terrasse" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
+            <img src={imgs.dejeuner} alt="Lunch on the terrace" className="w-full h-full object-cover" style={{ backgroundColor: '#9B8B7A' }} loading="lazy" />
           </div>
           <div className="reveal reveal-delay-3 md:col-span-1 lg:col-span-2 bg-travertin p-10 lg:p-14 flex flex-col justify-center">
             <blockquote
               className="font-display font-light italic text-charbon mb-6 leading-[1.35]"
               style={{ fontSize: 'clamp(20px, 2.8vw, 32px)' }}
             >
-              "Une terrasse au soleil couchant,<br />
-              un verre de rosé, le chant des cigales..."
+              "A terrace at sunset,<br />
+              a glass of rosé, the song of cicadas..."
             </blockquote>
             <div className="flex items-center gap-4">
               <div className="w-7 h-px bg-bronze" />
-              <span className="font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze">L'art de vivre provençal</span>
+              <span className="font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze">Provençal art of living</span>
             </div>
           </div>
         </div>
 
         <div className="reveal mt-10 flex flex-wrap gap-2.5">
           {[
-            'Petit-déjeuner au soleil',
-            'Apéritif au bord de la piscine',
-            'Dîner aux chandelles',
-            'Rosé de Provence',
-            'Cigales & lauriers',
-            'Nuits étoilées',
+            'Breakfast in the sun',
+            'Poolside aperitif',
+            'Candlelit dinner',
+            'Provence rosé',
+            'Cicadas & laurels',
+            'Starlit nights',
           ].map(tag => (
             <span
               key={tag}
@@ -589,12 +589,12 @@ function ArtDeVivreSection() {
 
 function ExploreSection() {
   const destinations = [
-    { name: 'Grimaud', desc: 'Village médiéval & marchés provençaux', img: imgs.provence, dist: '5 min' },
-    { name: 'Port-Grimaud', desc: 'La Venise provençale', img: imgs.plage, dist: '10 min' },
-    { name: 'Saint-Tropez', desc: 'Glamour, plages & place des Lices', img: imgs.tropez, dist: '15 min' },
-    { name: 'Ramatuelle', desc: 'Vignobles & panoramas sur le golfe', img: imgs.provence, dist: '20 min' },
-    { name: 'Gassin', desc: "L'un des plus beaux villages de France", img: imgs.tropez, dist: '25 min' },
-    { name: 'Gigaro & Rayol', desc: 'Plages et jardins préservés', img: imgs.plage, dist: '35 min' },
+    { name: 'Grimaud', desc: 'Medieval village & Provençal markets', img: imgs.provence, dist: '5 min' },
+    { name: 'Port-Grimaud', desc: 'The Provençal Venice', img: imgs.plage, dist: '10 min' },
+    { name: 'Saint-Tropez', desc: 'Glamour, beaches & Place des Lices', img: imgs.tropez, dist: '15 min' },
+    { name: 'Ramatuelle', desc: 'Vineyards & gulf panoramas', img: imgs.provence, dist: '20 min' },
+    { name: 'Gassin', desc: "One of France's most beautiful villages", img: imgs.tropez, dist: '25 min' },
+    { name: 'Gigaro & Rayol', desc: 'Unspoiled beaches and gardens', img: imgs.plage, dist: '35 min' },
   ]
 
   return (
@@ -604,11 +604,11 @@ function ExploreSection() {
           <div>
             <Label num="06" text="Explorer" />
             <Title>
-              Aux portes du<br /><em>Golfe de Saint-Tropez</em>
+              At the gateway to<br /><em>the Gulf of Saint-Tropez</em>
             </Title>
           </div>
           <p className="font-body font-light text-taupe text-[14px] leading-relaxed lg:max-w-[240px]">
-            La villa est idéalement placée entre mer, vignobles et villages perchés.
+            The villa is ideally placed between the sea, vineyards, and hilltop villages.
           </p>
         </div>
 
@@ -641,25 +641,25 @@ function ExploreSection() {
   )
 }
 
-// ── Votre Séjour ─────────────────────────────────────────────────────────────
+// ── Your Stay ─────────────────────────────────────────────────────────────
 
 function StaySection() {
   const categories = [
     {
-      title: 'Arrivée & Départ',
-      items: ['Check-in 16h — 20h', 'Check-out avant 11h', 'Accueil personnalisé', 'Remise des clés en main'],
+      title: 'Arrival & Departure',
+      items: ['Check-in 4 pm — 8 pm', 'Check-out before 11 am', 'Personal welcome', 'Key handover on arrival'],
     },
     {
-      title: 'Confort',
-      items: ['Wi-Fi haut débit', 'Climatisation', 'Piscine chauffée', 'Parking privatif'],
+      title: 'Comfort',
+      items: ['High-speed Wi-Fi', 'Air conditioning', 'Heated pool', 'Private parking'],
     },
     {
-      title: 'Sécurité',
-      items: ['Alarme sécurisée', 'Domaine privé', 'Éclairage extérieur', 'Interphone'],
+      title: 'Security',
+      items: ['Secure alarm', 'Private estate', 'Outdoor lighting', 'Interphone'],
     },
     {
-      title: 'Règlement',
-      items: ['Non-fumeur', 'Animaux non acceptés', 'Événements sur demande', 'Calme après 22h'],
+      title: 'House Rules',
+      items: ['Non-smoking', 'Pets not accepted', 'Events on request', 'Quiet after 10 pm'],
     },
   ]
 
@@ -667,9 +667,9 @@ function StaySection() {
     <section id="sejour" className="py-32 lg:py-44 bg-ivory">
       <div className="max-w-[1440px] mx-auto px-7 lg:px-16">
         <div className="reveal mb-14 lg:mb-20">
-          <Label num="07" text="Votre Séjour" />
+          <Label num="07" text="Your Stay" />
           <Title>
-            Informations<br /><em>pratiques</em>
+            Practical<br /><em>information</em>
           </Title>
         </div>
 
@@ -697,11 +697,11 @@ function StaySection() {
 
 function ServicesSection() {
   const services = [
-    { name: 'Piscine chauffée', desc: 'Eau à température idéale tout au long de la saison' },
-    { name: 'Scooter disponible', desc: 'Pour explorer librement le Golfe de Saint-Tropez' },
-    { name: 'Recharge véhicule électrique', desc: 'Borne de recharge sur site' },
-    { name: 'Service de ménage', desc: 'Prestation disponible en option selon la durée du séjour' },
-    { name: 'Accueil personnalisé', desc: 'Remise des clés et présentation complète de la villa' },
+    { name: 'Heated pool', desc: 'Water kept at an ideal temperature throughout the season' },
+    { name: 'Scooter available', desc: 'For exploring the Gulf of Saint-Tropez freely' },
+    { name: 'Electric vehicle charging', desc: 'Charging station on site' },
+    { name: 'Housekeeping service', desc: 'Optional service depending on the length of stay' },
+    { name: 'Personal welcome', desc: 'Key handover and full introduction to the villa' },
   ]
 
   return (
@@ -710,7 +710,7 @@ function ServicesSection() {
         <div className="reveal mb-14 lg:mb-20">
           <Label num="08" text="Services" />
           <Title light>
-            Services<br /><em>premium</em>
+            Premium<br /><em>services</em>
           </Title>
         </div>
 
@@ -771,7 +771,7 @@ function ContactSection() {
           <div className="reveal">
             <Label num="09" text="Contact" />
             <Title>
-              Réservez<br /><em>votre séjour</em>
+              Book<br /><em>your stay</em>
             </Title>
             <Divider />
 
@@ -805,7 +805,7 @@ function ContactSection() {
                     <path d="M16 1c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm0 4c4.418 0 8.418 2.238 10.75 5.875-.563 2.25-2.063 5.125-4.875 7.75C19.312 20.5 17.5 22 16 22.875 14.5 22 12.688 20.5 10.125 18.625 7.313 16 5.813 13.125 5.25 10.875 7.582 7.238 11.582 5 16 5zm0 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                   </svg>
                 </div>
-                <span className="font-body font-light text-taupe text-[14px]">Réserver sur Airbnb</span>
+                <span className="font-body font-light text-taupe text-[14px]">Book on Airbnb</span>
               </a>
             </div>
 
@@ -827,10 +827,10 @@ function ContactSection() {
                   className="font-display font-light text-charbon mb-5 leading-[1.1]"
                   style={{ fontSize: 'clamp(36px, 4vw, 50px)' }}
                 >
-                  Merci pour votre<br /><em>message</em>
+                  Thank you for your<br /><em>message</em>
                 </h3>
                 <p className="font-body font-light text-taupe text-[15px] leading-relaxed">
-                  Nous revenons vers vous dans les plus brefs délais pour confirmer votre séjour.
+                  We will get back to you shortly to confirm your stay.
                 </p>
               </div>
             ) : (
@@ -839,34 +839,34 @@ function ContactSection() {
 
                 <div className="grid grid-cols-2 gap-7">
                   <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Nom</label>
-                    <input type="text" name="name" value={fields.name} onChange={handleChange} required className={inputClass} placeholder="Votre nom" />
+                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Name</label>
+                    <input type="text" name="name" value={fields.name} onChange={handleChange} required className={inputClass} placeholder="Your name" />
                   </div>
                   <div>
                     <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Email</label>
-                    <input type="email" name="email" value={fields.email} onChange={handleChange} required className={inputClass} placeholder="votre@email.com" />
+                    <input type="email" name="email" value={fields.email} onChange={handleChange} required className={inputClass} placeholder="your@email.com" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Téléphone</label>
+                  <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Phone</label>
                   <input type="tel" name="phone" value={fields.phone} onChange={handleChange} className={inputClass} placeholder="+33 ..." />
                 </div>
 
                 <div className="grid grid-cols-2 gap-7">
                   <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Arrivée</label>
+                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Arrival</label>
                     <input type="date" name="arrival" value={fields.arrival} onChange={handleChange} className={inputClass} />
                   </div>
                   <div>
-                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Départ</label>
+                    <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Departure</label>
                     <input type="date" name="departure" value={fields.departure} onChange={handleChange} className={inputClass} />
                   </div>
                 </div>
 
                 <div>
                   <label className="block font-body text-[9.5px] tracking-[0.22em] uppercase text-bronze mb-2.5">Message</label>
-                  <textarea name="message" value={fields.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Vos questions, souhaits particuliers..." />
+                  <textarea name="message" value={fields.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Your questions or special requests..." />
                 </div>
 
                 <button
@@ -874,7 +874,7 @@ function ContactSection() {
                   disabled={sending}
                   className="w-full py-4 bg-charbon text-ivory font-body text-[10px] tracking-[0.22em] uppercase hover:bg-bronze transition-colors duration-300 disabled:opacity-50"
                 >
-                  {sending ? 'Envoi en cours...' : 'Envoyer la demande'}
+                  {sending ? 'Sending...' : 'Send request'}
                 </button>
               </form>
             )}
@@ -889,11 +889,11 @@ function ContactSection() {
 
 function Footer() {
   const links = [
-    { label: 'La Villa', href: '#villa' },
-    { label: 'Les Intérieurs', href: '#interieurs' },
-    { label: 'Les Chambres', href: '#chambres' },
-    { label: 'Jardin & Piscine', href: '#jardin' },
-    { label: 'Art de Vivre', href: '#art-de-vivre' },
+    { label: 'The Villa', href: '#villa' },
+    { label: 'Interiors', href: '#interieurs' },
+    { label: 'Bedrooms', href: '#chambres' },
+    { label: 'Garden & Pool', href: '#jardin' },
+    { label: 'Lifestyle', href: '#art-de-vivre' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -935,11 +935,11 @@ function Footer() {
 
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-body text-[9.5px] tracking-[0.1em] text-white/25">
-            © 2024 Villa Les Palmiers. Tous droits réservés.
+            © 2024 Villa Les Palmiers. All rights reserved.
           </p>
           <div className="flex gap-7">
-            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Mentions légales</a>
-            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</a>
+            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Legal notice</a>
+            <a href="#" className="font-body text-[9.5px] tracking-[0.1em] text-white/25 hover:text-white/50 transition-colors">Privacy policy</a>
           </div>
         </div>
       </div>
@@ -972,6 +972,6 @@ function VillaPage() {
   )
 }
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/en')({
   component: VillaPage,
 })

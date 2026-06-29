@@ -117,3 +117,47 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* ── Nav transition ── */
 .nav-transparent { background-color: transparent; }
 .nav-solid { background-color: #F8F5F0; box-shadow: 0 1px 0 rgba(196,168,130,0.2); }
+
+/* ── Ajustements Villa Les Palmiers ─────────────────────────────────────────── */
+
+/* Centre les boutons Découvrir / Réserver sur l'image d'accueil */
+section.relative.h-screen .ha-4.flex.flex-wrap {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Améliore l'équilibre du hero sur mobile */
+@media (max-width: 767px) {
+  section.relative.h-screen .flex-1.flex.flex-col.justify-end {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 7rem;
+  }
+
+  section.relative.h-screen h1 {
+    font-size: clamp(50px, 17vw, 72px) !important;
+  }
+
+  section.relative.h-screen .ha-2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Supprime les mentions 6 voyageurs et 3 chambres sous la page d'accueil */
+.bg-charbon.py-5 .no-scrollbar > div:nth-child(1),
+.bg-charbon.py-5 .no-scrollbar > div:nth-child(2) {
+  display: none;
+}
+
+/* Retire la mention des baies vitrées dans la légende des intérieurs */
+#interieurs .mt-8 p {
+  font-size: 0;
+}
+
+#interieurs .mt-8 p::after {
+  content: "Salon · Cuisine ouverte · Salle à manger";
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}

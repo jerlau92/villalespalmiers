@@ -5,11 +5,11 @@ const U = 'https://images.unsplash.com/photo-'
 const Q = (w: number) => `?auto=format&fit=crop&w=${w}&q=84`
 
 const imgs = {
-  hero: U + '1570129477492-45c003dc4501' + Q(2200),
-  exterior1: U + '1512917774080-9991f1c4c750' + Q(1400),
-  exterior2: U + '1566073771259-a9a8fe8671a7' + Q(1600),
-  garden: U + '1490750967868-88df5691cc33' + Q(1200),
-  terrace: U + '1533044307260-24af8186fcb0' + Q(1200),
+  hero: '/images/villa/exterieur-1.jpg',
+  exterior1: '/images/villa/exterieur-2.jpg',
+  exterior2: '/images/villa/exterieur-13.jpg',
+  garden: '/images/villa/exterieur-21.jpg',
+  terrace: '/images/villa/exterieur-24.jpg',
   salon: U + '1600566752355-35792bedcfea' + Q(1400),
   cuisine: U + '1556909114-f6e7ad7d3136' + Q(1200),
   dining: U + '1617806118233-18e1de247200' + Q(1200),
@@ -19,7 +19,7 @@ const imgs = {
   bedroom3: U + '1505693416388-ac5ce068fe85' + Q(1200),
   breakfast: U + '1533089860892-a7c6f0a88666' + Q(1000),
   lunch: U + '1414235077428-338989a2e8c0' + Q(1000),
-  provence: U + '1523531294919-4bcd7c65d049' + Q(1000),
+  provence: '/images/villa/exterieur-4.jpg',
 }
 
 function useScrolled(threshold = 60) {
@@ -238,12 +238,12 @@ function GardenSection() {
 
 function GallerySection() {
   const gallery = [
-    { img: imgs.exterior1, alt: 'Extérieur de la villa' },
-    { img: imgs.salon, alt: 'Salon' },
-    { img: imgs.cuisine, alt: 'Cuisine ouverte' },
-    { img: imgs.dining, alt: 'Salle à manger' },
-    { img: imgs.exterior2, alt: 'Piscine' },
-    { img: imgs.terrace, alt: 'Terrasse' },
+    { img: imgs.hero, alt: 'Extérieur de la villa' },
+    { img: imgs.exterior1, alt: 'Façade de la villa' },
+    { img: imgs.exterior2, alt: 'Piscine et jardin' },
+    { img: imgs.garden, alt: 'Jardin méditerranéen' },
+    { img: imgs.terrace, alt: 'Terrasse extérieure' },
+    { img: imgs.provence, alt: 'Vue extérieure de la propriété' },
   ]
   return (
     <section id="galerie" className="py-32 lg:py-44 bg-travertin">
